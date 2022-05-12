@@ -8,6 +8,7 @@
 import UIKit
 import CoreLocation
 import MapKit
+import RealmSwift
 
 class ViewController: UIViewController {
     
@@ -21,6 +22,7 @@ class ViewController: UIViewController {
         manager.requestWhenInUseAuthorization()
         return manager
     }()
+//    var userPinView: MKAnnotationView!
     
     var previousCoordinate: CLLocationCoordinate2D?
 
@@ -35,8 +37,18 @@ class ViewController: UIViewController {
         getLocationUsagePermission()
         self.mapView.delegate = self
         self.mapView.mapType = MKMapType.standard
-        self.mapView.showsUserLocation = true
+        self.mapView.showsUserLocation = false
         self.mapView.setUserTrackingMode(.follow, animated: true)
+        
+        let annotation1 = MKPointAnnotation()
+        let annotation2 = MKPointAnnotation()
+        annotation1.title = "Cogi"
+        annotation1.coordinate = CLLocationCoordinate2D(latitude: 37.493756090870505, longitude: 126.88822023477557)
+        annotation2.title = "Chiwawa"
+        annotation2.coordinate = CLLocationCoordinate2D(latitude: 37.48698230842552, longitude: 126.89012990329839)
+        
+        self.mapView.addAnnotation(annotation1)
+        self.mapView.addAnnotations([annotation1, annotation2])
     }
     
     func getLocationUsagePermission() {
@@ -104,5 +116,22 @@ extension ViewController: MKMapViewDelegate {
         renderer.alpha = 1.0
         
         return renderer
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            
+            let pin = mapView.view(for: annotation) ?? MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+            pin.image = UIImage(named: "smile")
+//            userPinView = pin
+            return pin
+        } else {
+            //handle other annotations
+            
+            let pin = mapView.view(for: annotation) ?? MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+            pin.image = UIImage(named: "corgi")
+            return pin
+        }
+        return nil
     }
 }
