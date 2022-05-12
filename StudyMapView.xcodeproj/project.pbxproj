@@ -14,9 +14,12 @@
 		DD3CE7EA282C9316001BBF8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD3CE7E9282C9316001BBF8D /* Assets.xcassets */; };
 		DD3CE7ED282C9316001BBF8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD3CE7EB282C9316001BBF8D /* LaunchScreen.storyboard */; };
 		DD3CE7F5282CA67D001BBF8D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3CE7F4282CA67D001BBF8D /* Logger.swift */; };
+		E68162C7E55130E33F583951 /* Pods_StudyMapView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59DA04D4C24E6310D0F307 /* Pods_StudyMapView.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2BCBAFB73BCAF2AC25599960 /* Pods-StudyMapView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyMapView.debug.xcconfig"; path = "Target Support Files/Pods-StudyMapView/Pods-StudyMapView.debug.xcconfig"; sourceTree = "<group>"; };
+		A8C33B14E67422629846C478 /* Pods-StudyMapView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyMapView.release.xcconfig"; path = "Target Support Files/Pods-StudyMapView/Pods-StudyMapView.release.xcconfig"; sourceTree = "<group>"; };
 		DD3CE7DD282C9315001BBF8D /* StudyMapView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyMapView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3CE7E0282C9315001BBF8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD3CE7E2282C9315001BBF8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		DD3CE7EC282C9316001BBF8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD3CE7EE282C9316001BBF8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD3CE7F4282CA67D001BBF8D /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		FD59DA04D4C24E6310D0F307 /* Pods_StudyMapView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyMapView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E68162C7E55130E33F583951 /* Pods_StudyMapView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		723BDD236BBC1AD0E13633B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD59DA04D4C24E6310D0F307 /* Pods_StudyMapView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A2408481E1453FB4A16AC8CB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2BCBAFB73BCAF2AC25599960 /* Pods-StudyMapView.debug.xcconfig */,
+				A8C33B14E67422629846C478 /* Pods-StudyMapView.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DD3CE7D4282C9315001BBF8D = {
 			isa = PBXGroup;
 			children = (
 				DD3CE7DF282C9315001BBF8D /* StudyMapView */,
 				DD3CE7DE282C9315001BBF8D /* Products */,
+				A2408481E1453FB4A16AC8CB /* Pods */,
+				723BDD236BBC1AD0E13633B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD3CE7F1282C9316001BBF8D /* Build configuration list for PBXNativeTarget "StudyMapView" */;
 			buildPhases = (
+				94B828FF2B1DFF7A2E24A0CE /* [CP] Check Pods Manifest.lock */,
 				DD3CE7D9282C9315001BBF8D /* Sources */,
 				DD3CE7DA282C9315001BBF8D /* Frameworks */,
 				DD3CE7DB282C9315001BBF8D /* Resources */,
+				68C1A32348011ADEA71D733F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +162,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		68C1A32348011ADEA71D733F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StudyMapView/Pods-StudyMapView-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StudyMapView/Pods-StudyMapView-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StudyMapView/Pods-StudyMapView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94B828FF2B1DFF7A2E24A0CE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StudyMapView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DD3CE7D9282C9315001BBF8D /* Sources */ = {
@@ -286,6 +355,7 @@
 		};
 		DD3CE7F2282C9316001BBF8D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BCBAFB73BCAF2AC25599960 /* Pods-StudyMapView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -314,6 +384,7 @@
 		};
 		DD3CE7F3282C9316001BBF8D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8C33B14E67422629846C478 /* Pods-StudyMapView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
