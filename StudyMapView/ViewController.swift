@@ -11,7 +11,7 @@ import MapKit
 
 class ViewController: UIViewController {
     
-    let mapView: MKMapView = MKMapView()
+    @IBOutlet weak var mapView: MKMapView!
     
     lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
@@ -21,6 +21,8 @@ class ViewController: UIViewController {
         manager.requestWhenInUseAuthorization()
         return manager
     }()
+    
+    var previousCoordinate: CLLocationCoordinate2D?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,10 @@ class ViewController: UIViewController {
 
     func mapviewSetting() {
         getLocationUsagePermission()
+        self.mapView.delegate = self
+        self.mapView.mapType = MKMapType.standard
+        self.mapView.showsUserLocation = true
+        self.mapView.setUserTrackingMode(.follow, animated: true)
     }
     
     func getLocationUsagePermission() {
@@ -58,10 +64,45 @@ extension ViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // the most recent location update is at the end of the array.
-        let location: CLLocation = locations[locations.count - 1]
-        let longtitude: CLLocationDegrees = location.coordinate.longitude
-        let latitude: CLLocationDegrees = location.coordinate.latitude
-        Logger.i("\(longtitude), \(latitude)")
+        
+        guard let location = locations.last else { return }
+        
+        let latitude = location.coordinate.latitude
+        let longtitude = location.coordinate.longitude
+        
+        if let previousCoordinate = self.previousCoordinate {
+            
+            var points: [CLLocationCoordinate2D] = []
+            
+            let point1 = CLLocationCoordinate2DMake(previousCoordinate.latitude, previousCoordinate.longitude)
+            
+            let point2: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longtitude)
+            
+            points.append(point1)
+            points.append(point2)
+            
+            let lineDraw = MKPolyline(coordinates: points, count: points.count)
+            self.mapView.addOverlay(lineDraw)
+        }
+        
+        
+        self.previousCoordinate = location.coordinate
+    }
+}
+
+
+extension ViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        guard let polyLine = overlay as? MKPolyline else {
+            Logger.d("can't draw polyline")
+            return MKOverlayRenderer()
+        }
+        
+        let renderer = MKPolylineRenderer(polyline: polyLine)
+        renderer.strokeColor = .red
+        renderer.lineWidth = 3.0
+        renderer.alpha = 1.0
+        
+        return renderer
     }
 }
