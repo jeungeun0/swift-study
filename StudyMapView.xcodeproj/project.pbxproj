@@ -14,6 +14,7 @@
 		DD3CE7EA282C9316001BBF8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD3CE7E9282C9316001BBF8D /* Assets.xcassets */; };
 		DD3CE7ED282C9316001BBF8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD3CE7EB282C9316001BBF8D /* LaunchScreen.storyboard */; };
 		DD3CE7F5282CA67D001BBF8D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3CE7F4282CA67D001BBF8D /* Logger.swift */; };
+		DD3CE7F7282DE676001BBF8D /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3CE7F6282DE676001BBF8D /* Marker.swift */; };
 		E68162C7E55130E33F583951 /* Pods_StudyMapView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59DA04D4C24E6310D0F307 /* Pods_StudyMapView.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		DD3CE7EC282C9316001BBF8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD3CE7EE282C9316001BBF8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD3CE7F4282CA67D001BBF8D /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		DD3CE7F6282DE676001BBF8D /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		FD59DA04D4C24E6310D0F307 /* Pods_StudyMapView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyMapView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -58,7 +60,6 @@
 				2BCBAFB73BCAF2AC25599960 /* Pods-StudyMapView.debug.xcconfig */,
 				A8C33B14E67422629846C478 /* Pods-StudyMapView.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -91,6 +92,7 @@
 				DD3CE7EB282C9316001BBF8D /* LaunchScreen.storyboard */,
 				DD3CE7EE282C9316001BBF8D /* Info.plist */,
 				DD3CE7F4282CA67D001BBF8D /* Logger.swift */,
+				DD3CE7F6282DE676001BBF8D /* Marker.swift */,
 			);
 			path = StudyMapView;
 			sourceTree = "<group>";
@@ -214,6 +216,7 @@
 				DD3CE7E1282C9315001BBF8D /* AppDelegate.swift in Sources */,
 				DD3CE7E3282C9315001BBF8D /* SceneDelegate.swift in Sources */,
 				DD3CE7F5282CA67D001BBF8D /* Logger.swift in Sources */,
+				DD3CE7F7282DE676001BBF8D /* Marker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
