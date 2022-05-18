@@ -15,6 +15,8 @@
 		DD3CE7ED282C9316001BBF8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD3CE7EB282C9316001BBF8D /* LaunchScreen.storyboard */; };
 		DD3CE7F5282CA67D001BBF8D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3CE7F4282CA67D001BBF8D /* Logger.swift */; };
 		DD3CE7F7282DE676001BBF8D /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3CE7F6282DE676001BBF8D /* Marker.swift */; };
+		DDE43B4B282E54C10021D806 /* BackgroundMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE43B4A282E54C10021D806 /* BackgroundMapViewController.swift */; };
+		DDE43B4D282E5B8E0021D806 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDE43B4C282E5B8E0021D806 /* MapKit.framework */; };
 		E68162C7E55130E33F583951 /* Pods_StudyMapView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59DA04D4C24E6310D0F307 /* Pods_StudyMapView.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,8 @@
 		DD3CE7EE282C9316001BBF8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD3CE7F4282CA67D001BBF8D /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		DD3CE7F6282DE676001BBF8D /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
+		DDE43B4A282E54C10021D806 /* BackgroundMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundMapViewController.swift; sourceTree = "<group>"; };
+		DDE43B4C282E5B8E0021D806 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FD59DA04D4C24E6310D0F307 /* Pods_StudyMapView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyMapView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -39,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDE43B4D282E5B8E0021D806 /* MapKit.framework in Frameworks */,
 				E68162C7E55130E33F583951 /* Pods_StudyMapView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,6 +54,7 @@
 		723BDD236BBC1AD0E13633B2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDE43B4C282E5B8E0021D806 /* MapKit.framework */,
 				FD59DA04D4C24E6310D0F307 /* Pods_StudyMapView.framework */,
 			);
 			name = Frameworks;
@@ -93,6 +99,7 @@
 				DD3CE7EE282C9316001BBF8D /* Info.plist */,
 				DD3CE7F4282CA67D001BBF8D /* Logger.swift */,
 				DD3CE7F6282DE676001BBF8D /* Marker.swift */,
+				DDE43B4A282E54C10021D806 /* BackgroundMapViewController.swift */,
 			);
 			path = StudyMapView;
 			sourceTree = "<group>";
@@ -215,6 +222,7 @@
 				DD3CE7E5282C9315001BBF8D /* ViewController.swift in Sources */,
 				DD3CE7E1282C9315001BBF8D /* AppDelegate.swift in Sources */,
 				DD3CE7E3282C9315001BBF8D /* SceneDelegate.swift in Sources */,
+				DDE43B4B282E54C10021D806 /* BackgroundMapViewController.swift in Sources */,
 				DD3CE7F5282CA67D001BBF8D /* Logger.swift in Sources */,
 				DD3CE7F7282DE676001BBF8D /* Marker.swift in Sources */,
 			);
@@ -367,6 +375,8 @@
 				DEVELOPMENT_TEAM = M824QZSP2W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StudyMapView/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "사용자의 위치정보를 받아오려고 합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 받아오려고 합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -396,6 +406,8 @@
 				DEVELOPMENT_TEAM = M824QZSP2W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StudyMapView/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "사용자의 위치정보를 받아오려고 합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 받아오려고 합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

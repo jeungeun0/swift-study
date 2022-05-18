@@ -22,15 +22,25 @@ class ViewController: UIViewController {
         manager.requestWhenInUseAuthorization()
         return manager
     }()
-//    var userPinView: MKAnnotationView!
     
     var previousCoordinate: CLLocationCoordinate2D?
+    var timer: Timer?
+    var count: CGFloat = 0.00001
+    var mark1: Marker = .init(title: "가산디지털단지역", subtitle: "출근 시 피난민 대열 주의!", coordinate: CLLocationCoordinate2D(latitude: 37.481605094093034, longitude: 126.88263612461213))
+    var mark2: Marker = .init(title: "스타벅스", subtitle: "커피마시러 가고 싶다..", coordinate: CLLocationCoordinate2D(latitude: 37.48134929396545, longitude: 126.88363429195765))
+    var layerCount: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         mapviewSetting()
+        
+        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(moveLocation), userInfo: nil, repeats: true)
+    }
+    
+    deinit {
+        mapView.delegate = nil
     }
 
     func mapviewSetting() {
@@ -39,46 +49,33 @@ class ViewController: UIViewController {
         self.mapView.mapType = MKMapType.standard
         self.mapView.showsUserLocation = false
         self.mapView.setUserTrackingMode(.follow, animated: true)
-        
-//        let annotation1 = MKPointAnnotation()
-//        let annotation2 = MKPointAnnotation()
-//        annotation1.title = "Cogi"
-//        annotation1.coordinate = CLLocationCoordinate2D(latitude: 37.493756090870505, longitude: 126.88822023477557)
-//        annotation2.title = "Chiwawa"
-//        annotation2.coordinate = CLLocationCoordinate2D(latitude: 37.48698230842552, longitude: 126.89012990329839)
-        
-        let mark1 = Marker(title: "가산디지털단지역", subtitle: "출근 시 피난민 대열 주의!", coordinate: CLLocationCoordinate2D(latitude: 37.481605094093034, longitude: 126.88263612461213))
-        let mark2 = Marker(title: "스타벅스", subtitle: "커피마시러 가고 싶다..", coordinate: CLLocationCoordinate2D(latitude: 37.48134929396545, longitude: 126.88363429195765))
-        
-        self.mapView.addAnnotation(mark1)
-        self.mapView.addAnnotation(mark2)
-        detectMarkerLocation()
-//        self.mapView.addAnnotation(annotation1)
-//        self.mapView.addAnnotations([annotation1, annotation2])
+        self.mapView.addAnnotations([mark1, mark2])
     }
     
     func getLocationUsagePermission() {
-        self.locationManager.requestWhenInUseAuthorization()
+//        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.requestAlwaysAuthorization()
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.pausesLocationUpdatesAutomatically = false
+        
     }
     
-    func detectMarkerLocation() {
-        let center = CLLocationCoordinate2D(latitude: 37.481605094093034, longitude: 126.88263612461213)
-        let region = 100.0
+    @objc func moveLocation() {
+
+        mark1 = Marker(title: mark1.title, subtitle: mark1.subtitle, coordinate: CLLocationCoordinate2D(latitude: mark1.coordinate.latitude + count, longitude: mark1.coordinate.longitude + count))
+        mark2 = Marker(title: mark2.title, subtitle: mark2.subtitle, coordinate: CLLocationCoordinate2D(latitude: mark2.coordinate.latitude - count, longitude: mark2.coordinate.longitude - count))
+//        addCircle(locationCoordinate: self.mapView.userLocation.coordinate)
+        self.mapView.removeAnnotations(self.mapView.annotations)
+        self.mapView.addAnnotations([mark1, mark2])
         
-        //이건 왜 하는 거지?
-        let locationRegion = CLCircularRegion(center: center, radius: region, identifier: "subway")
-        
-        let circle = MKCircle(center: center, radius: region)
-        
-        mapView.addOverlay(circle)
-        
-        for marker in mapView.annotations {
-            if locationRegion.contains(marker.coordinate) {
-                print("\(String(describing: marker.title))은 가산디지털단지역 범위에 포함되었습니다.")
-            } else {
-                print("\(String(describing: marker.title))은 가산디지털단지역 범위에 포함되지 않았습니다.")
-            }
-        }
+    }
+    
+    func addCircle(locationCoordinate: CLLocationCoordinate2D) {
+        self.mapView.removeOverlays(self.mapView.overlays)
+        Logger.d(layerCount)
+        layerCount += 1
+        let circle = MKCircle(center: locationCoordinate, radius: 100 as CLLocationDistance)
+        self.mapView.addOverlay(circle)
     }
 }
 
@@ -104,9 +101,10 @@ extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         guard let location = locations.last else { return }
-        
         let latitude = location.coordinate.latitude
         let longtitude = location.coordinate.longitude
+        Logger.i(latitude)
+        Logger.i(longtitude)
         
         if let previousCoordinate = self.previousCoordinate {
             
@@ -124,98 +122,76 @@ extension ViewController: CLLocationManagerDelegate {
             
         }
         
+        DispatchQueue.main.async {
+            Logger.i(self.mapView.userLocation.coordinate)
+            self.addCircle(locationCoordinate: self.mapView.userLocation.coordinate)
+        }
+        
         self.previousCoordinate = location.coordinate
     }
 }
 
 
 extension ViewController: MKMapViewDelegate {
+    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
-        /**
-         이동 경로 표시하는 코드
-         guard let polyLine = overlay as? MKPolyline else {
-             Logger.d("can't draw polyline")
-             return MKOverlayRenderer()
-         }
-         
-         let renderer = MKPolylineRenderer(polyline: polyLine)
-         renderer.strokeColor = .red
-         renderer.lineWidth = 3.0
-         renderer.alpha = 1.0
-         
-         return renderer
-         */
-        
-        
-        let circleRenderer = MKCircleRenderer(overlay: overlay)
-        circleRenderer.strokeColor = .red
-        circleRenderer.fillColor = UIColor.yellow.withAlphaComponent(0.3)
-        circleRenderer.lineWidth = 1.0
-        return circleRenderer
-        
+        if overlay is MKCircle {
+            let circleRenderer = MKCircleRenderer(overlay: overlay)
+            circleRenderer.strokeColor = .red
+            circleRenderer.fillColor = UIColor.yellow.withAlphaComponent(0.3)
+            circleRenderer.lineWidth = 1.0
+            return circleRenderer
+        } else if let polyLine = overlay as? MKPolyline {
+            let renderer = MKPolylineRenderer(polyline: polyLine)
+            renderer.strokeColor = .red
+            renderer.lineWidth = 3.0
+            renderer.alpha = 1.0
+            
+            return renderer
+        } else {
+            return MKOverlayRenderer()
+        }
         
     }
     
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        /**
-         현재위치의 이미지와 다른 위치의 이미지를 다르게 설정하는 코드
-         if annotation is MKUserLocation {
-             
-             let pin = mapView.view(for: annotation) ?? MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
-             pin.image = UIImage(named: "smile")
- //            userPinView = pin
-             return pin
-         } else {
-             //handle other annotations
-             
-             let pin = mapView.view(for: annotation) ?? MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
-             pin.image = UIImage(named: "corgi")
-             return pin
-         }
-         return nil
-         */
         
-        /**
-         var annotationView: MKAnnotationView?
-         annotationView = .init(annotation: annotation, reuseIdentifier: "default")
-         
-         let annotationImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-         let image = UIImage(named: "corgi")
-         annotationImageView.image = image
-         
-         let annotationLabel = UILabel(frame: CGRect(x: 0, y: -35, width: 45, height: 15))
-         annotationLabel.backgroundColor = .systemOrange
-         annotationLabel.textColor = .white
-         annotationLabel.numberOfLines = 3
-         annotationLabel.textAlignment = .center
-         annotationLabel.font = UIFont.boldSystemFont(ofSize: 10)
-         annotationLabel.text = annotation.title!
-         
-         annotationView?.addSubview(annotationImageView)
-         annotationView?.addSubview(annotationLabel)
-         
-         return annotationView
-         */
-        var annotationView: MKAnnotationView?
-        annotationView = .init(annotation: annotation, reuseIdentifier: "default")
-        
-        let annotationImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-        let image = UIImage(named: "corgi")
-        annotationImageView.image = image
-        
-        let annotationLabel = UILabel(frame: CGRect(x: 0, y: -35, width: 45, height: 15))
-        annotationLabel.backgroundColor = .systemOrange
-        annotationLabel.textColor = .white
-        annotationLabel.numberOfLines = 3
-        annotationLabel.textAlignment = .center
-        annotationLabel.font = UIFont.boldSystemFont(ofSize: 10)
-        annotationLabel.text = annotation.title!
-        
-        annotationView?.addSubview(annotationImageView)
-        annotationView?.addSubview(annotationLabel)
-        
-        return annotationView
-        
+        if annotation is MKUserLocation {
+            let annotationView = mapView.view(for: annotation) ?? MKAnnotationView(annotation: annotation, reuseIdentifier: "me")
+            annotationView.image = UIImage(named: "smile")
+
+            let annotationLabel = UILabel(frame: CGRect(x: 0, y: -35, width: 45, height: 15))
+            annotationLabel.backgroundColor = .systemOrange
+            annotationLabel.textColor = .white
+            annotationLabel.numberOfLines = 3
+            annotationLabel.textAlignment = .center
+            annotationLabel.font = UIFont.boldSystemFont(ofSize: 10)
+            annotationLabel.text = annotation.title!
+            
+            annotationView.addSubview(annotationLabel)
+            return annotationView
+        } else {
+            var annotationView: MKAnnotationView?
+            annotationView = .init(annotation: annotation, reuseIdentifier: "others")
+            
+            let annotationImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+            let image = UIImage(named: "corgi")
+            annotationImageView.image = image
+            
+            let annotationLabel = UILabel(frame: CGRect(x: 0, y: -35, width: 45, height: 15))
+            annotationLabel.backgroundColor = .systemOrange
+            annotationLabel.textColor = .white
+            annotationLabel.numberOfLines = 3
+            annotationLabel.textAlignment = .center
+            annotationLabel.font = UIFont.boldSystemFont(ofSize: 10)
+            annotationLabel.text = annotation.title!
+            
+            annotationView?.addSubview(annotationImageView)
+            annotationView?.addSubview(annotationLabel)
+            
+            return annotationView
+        }
     }
 }
