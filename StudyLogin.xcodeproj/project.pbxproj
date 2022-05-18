@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE2EDF98780B65FA4CF7F768 /* Pods_StudyLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FBB4A640F5096B57830D55 /* Pods_StudyLogin.framework */; };
 		DDF085D42831E8B0004FF351 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF085D32831E8B0004FF351 /* AppDelegate.swift */; };
 		DDF085D62831E8B0004FF351 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF085D52831E8B0004FF351 /* SceneDelegate.swift */; };
 		DDF085D82831E8B0004FF351 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF085D72831E8B0004FF351 /* ViewController.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23FBB4A640F5096B57830D55 /* Pods_StudyLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26EB970699075C979B87A92A /* Pods-StudyLogin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyLogin.debug.xcconfig"; path = "Target Support Files/Pods-StudyLogin/Pods-StudyLogin.debug.xcconfig"; sourceTree = "<group>"; };
+		873C66BCFDE765EA0A28C771 /* Pods-StudyLogin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyLogin.release.xcconfig"; path = "Target Support Files/Pods-StudyLogin/Pods-StudyLogin.release.xcconfig"; sourceTree = "<group>"; };
 		DDF085D02831E8B0004FF351 /* StudyLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF085D32831E8B0004FF351 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDF085D52831E8B0004FF351 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE2EDF98780B65FA4CF7F768 /* Pods_StudyLogin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		841312F4A04CBD86F125878B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				26EB970699075C979B87A92A /* Pods-StudyLogin.debug.xcconfig */,
+				873C66BCFDE765EA0A28C771 /* Pods-StudyLogin.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DDF085C72831E8B0004FF351 = {
 			isa = PBXGroup;
 			children = (
 				DDF085D22831E8B0004FF351 /* StudyLogin */,
 				DDF085D12831E8B0004FF351 /* Products */,
+				841312F4A04CBD86F125878B /* Pods */,
+				E68472B410800B0FA40D5732 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +83,14 @@
 			path = StudyLogin;
 			sourceTree = "<group>";
 		};
+		E68472B410800B0FA40D5732 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				23FBB4A640F5096B57830D55 /* Pods_StudyLogin.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DDF085E42831E8B1004FF351 /* Build configuration list for PBXNativeTarget "StudyLogin" */;
 			buildPhases = (
+				283EBC0D95A9336B15617F07 /* [CP] Check Pods Manifest.lock */,
 				DDF085CC2831E8B0004FF351 /* Sources */,
 				DDF085CD2831E8B0004FF351 /* Frameworks */,
 				DDF085CE2831E8B0004FF351 /* Resources */,
+				D1892CB49523FF43EB2D2397 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +158,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		283EBC0D95A9336B15617F07 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StudyLogin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1892CB49523FF43EB2D2397 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StudyLogin/Pods-StudyLogin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StudyLogin/Pods-StudyLogin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StudyLogin/Pods-StudyLogin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DDF085CC2831E8B0004FF351 /* Sources */ = {
@@ -282,6 +350,7 @@
 		};
 		DDF085E52831E8B1004FF351 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26EB970699075C979B87A92A /* Pods-StudyLogin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -295,12 +364,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.aisdugo.StudyLogin;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.alphadopetcare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -310,6 +380,7 @@
 		};
 		DDF085E62831E8B1004FF351 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 873C66BCFDE765EA0A28C771 /* Pods-StudyLogin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -323,12 +394,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.aisdugo.StudyLogin;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.alphadopetcare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
