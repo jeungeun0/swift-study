@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DD3CE7E1282C9315001BBF8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3CE7E0282C9315001BBF8D /* AppDelegate.swift */; };
+		DD3CE7E3282C9315001BBF8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3CE7E2282C9315001BBF8D /* SceneDelegate.swift */; };
+		DD3CE7E5282C9315001BBF8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3CE7E4282C9315001BBF8D /* ViewController.swift */; };
+		DD3CE7E8282C9315001BBF8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD3CE7E6282C9315001BBF8D /* Main.storyboard */; };
+		DD3CE7EA282C9316001BBF8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD3CE7E9282C9316001BBF8D /* Assets.xcassets */; };
+		DD3CE7ED282C9316001BBF8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD3CE7EB282C9316001BBF8D /* LaunchScreen.storyboard */; };
+		DD3CE7F5282CA67D001BBF8D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3CE7F4282CA67D001BBF8D /* Logger.swift */; };
+		DD3CE7F7282DE676001BBF8D /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3CE7F6282DE676001BBF8D /* Marker.swift */; };
+		DDE43B4B282E54C10021D806 /* BackgroundMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE43B4A282E54C10021D806 /* BackgroundMapViewController.swift */; };
+		DDE43B4D282E5B8E0021D806 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDE43B4C282E5B8E0021D806 /* MapKit.framework */; };
+		E68162C7E55130E33F583951 /* Pods_StudyMapView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59DA04D4C24E6310D0F307 /* Pods_StudyMapView.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2BCBAFB73BCAF2AC25599960 /* Pods-StudyMapView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyMapView.debug.xcconfig"; path = "Target Support Files/Pods-StudyMapView/Pods-StudyMapView.debug.xcconfig"; sourceTree = "<group>"; };
+		A8C33B14E67422629846C478 /* Pods-StudyMapView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyMapView.release.xcconfig"; path = "Target Support Files/Pods-StudyMapView/Pods-StudyMapView.release.xcconfig"; sourceTree = "<group>"; };
+		DD3CE7DD282C9315001BBF8D /* StudyMapView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyMapView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD3CE7E0282C9315001BBF8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DD3CE7E2282C9315001BBF8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DD3CE7E4282C9315001BBF8D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DD3CE7E7282C9315001BBF8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD3CE7E9282C9316001BBF8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD3CE7EC282C9316001BBF8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DD3CE7EE282C9316001BBF8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD3CE7F4282CA67D001BBF8D /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		DD3CE7F6282DE676001BBF8D /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
+		DDE43B4A282E54C10021D806 /* BackgroundMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundMapViewController.swift; sourceTree = "<group>"; };
+		DDE43B4C282E5B8E0021D806 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FD59DA04D4C24E6310D0F307 /* Pods_StudyMapView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyMapView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD3CE7DA282C9315001BBF8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDE43B4D282E5B8E0021D806 /* MapKit.framework in Frameworks */,
+				E68162C7E55130E33F583951 /* Pods_StudyMapView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		723BDD236BBC1AD0E13633B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DDE43B4C282E5B8E0021D806 /* MapKit.framework */,
+				FD59DA04D4C24E6310D0F307 /* Pods_StudyMapView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A2408481E1453FB4A16AC8CB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2BCBAFB73BCAF2AC25599960 /* Pods-StudyMapView.debug.xcconfig */,
+				A8C33B14E67422629846C478 /* Pods-StudyMapView.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DD3CE7D4282C9315001BBF8D = {
+			isa = PBXGroup;
+			children = (
+				DD3CE7DF282C9315001BBF8D /* StudyMapView */,
+				DD3CE7DE282C9315001BBF8D /* Products */,
+				A2408481E1453FB4A16AC8CB /* Pods */,
+				723BDD236BBC1AD0E13633B2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DD3CE7DE282C9315001BBF8D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD3CE7DD282C9315001BBF8D /* StudyMapView.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD3CE7DF282C9315001BBF8D /* StudyMapView */ = {
+			isa = PBXGroup;
+			children = (
+				DD3CE7E0282C9315001BBF8D /* AppDelegate.swift */,
+				DD3CE7E2282C9315001BBF8D /* SceneDelegate.swift */,
+				DD3CE7E4282C9315001BBF8D /* ViewController.swift */,
+				DD3CE7E6282C9315001BBF8D /* Main.storyboard */,
+				DD3CE7E9282C9316001BBF8D /* Assets.xcassets */,
+				DD3CE7EB282C9316001BBF8D /* LaunchScreen.storyboard */,
+				DD3CE7EE282C9316001BBF8D /* Info.plist */,
+				DD3CE7F4282CA67D001BBF8D /* Logger.swift */,
+				DD3CE7F6282DE676001BBF8D /* Marker.swift */,
+				DDE43B4A282E54C10021D806 /* BackgroundMapViewController.swift */,
+			);
+			path = StudyMapView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD3CE7DC282C9315001BBF8D /* StudyMapView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD3CE7F1282C9316001BBF8D /* Build configuration list for PBXNativeTarget "StudyMapView" */;
+			buildPhases = (
+				94B828FF2B1DFF7A2E24A0CE /* [CP] Check Pods Manifest.lock */,
+				DD3CE7D9282C9315001BBF8D /* Sources */,
+				DD3CE7DA282C9315001BBF8D /* Frameworks */,
+				DD3CE7DB282C9315001BBF8D /* Resources */,
+				68C1A32348011ADEA71D733F /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StudyMapView;
+			productName = StudyMapView;
+			productReference = DD3CE7DD282C9315001BBF8D /* StudyMapView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD3CE7D5282C9315001BBF8D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					DD3CE7DC282C9315001BBF8D = {
+						CreatedOnToolsVersion = 13.3;
+					};
+				};
+			};
+			buildConfigurationList = DD3CE7D8282C9315001BBF8D /* Build configuration list for PBXProject "StudyMapView" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD3CE7D4282C9315001BBF8D;
+			productRefGroup = DD3CE7DE282C9315001BBF8D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD3CE7DC282C9315001BBF8D /* StudyMapView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD3CE7DB282C9315001BBF8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD3CE7ED282C9316001BBF8D /* LaunchScreen.storyboard in Resources */,
+				DD3CE7EA282C9316001BBF8D /* Assets.xcassets in Resources */,
+				DD3CE7E8282C9315001BBF8D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		68C1A32348011ADEA71D733F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StudyMapView/Pods-StudyMapView-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StudyMapView/Pods-StudyMapView-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StudyMapView/Pods-StudyMapView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94B828FF2B1DFF7A2E24A0CE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StudyMapView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD3CE7D9282C9315001BBF8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD3CE7E5282C9315001BBF8D /* ViewController.swift in Sources */,
+				DD3CE7E1282C9315001BBF8D /* AppDelegate.swift in Sources */,
+				DD3CE7E3282C9315001BBF8D /* SceneDelegate.swift in Sources */,
+				DDE43B4B282E54C10021D806 /* BackgroundMapViewController.swift in Sources */,
+				DD3CE7F5282CA67D001BBF8D /* Logger.swift in Sources */,
+				DD3CE7F7282DE676001BBF8D /* Marker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DD3CE7E6282C9315001BBF8D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD3CE7E7282C9315001BBF8D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DD3CE7EB282C9316001BBF8D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD3CE7EC282C9316001BBF8D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DD3CE7EF282C9316001BBF8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DD3CE7F0282C9316001BBF8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DD3CE7F2282C9316001BBF8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BCBAFB73BCAF2AC25599960 /* Pods-StudyMapView.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M824QZSP2W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StudyMapView/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "사용자의 위치정보를 받아오려고 합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 받아오려고 합니다.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.aisdugo.StudyMapView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DD3CE7F3282C9316001BBF8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8C33B14E67422629846C478 /* Pods-StudyMapView.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M824QZSP2W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StudyMapView/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "사용자의 위치정보를 받아오려고 합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 받아오려고 합니다.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.aisdugo.StudyMapView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD3CE7D8282C9315001BBF8D /* Build configuration list for PBXProject "StudyMapView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD3CE7EF282C9316001BBF8D /* Debug */,
+				DD3CE7F0282C9316001BBF8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD3CE7F1282C9316001BBF8D /* Build configuration list for PBXNativeTarget "StudyMapView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD3CE7F2282C9316001BBF8D /* Debug */,
+				DD3CE7F3282C9316001BBF8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DD3CE7D5282C9315001BBF8D /* Project object */;
+}
