@@ -17,6 +17,14 @@ class PageVCInContainerViewController: UIViewController {
     var currentIndex: Int = 0 {
         didSet{
             print("currentIndex: \(currentIndex)")
+            
+            let cell = collectionView.cellForItem(at: IndexPath(row: currentIndex, section: 0)) as! CategoryCollectionViewCell
+            cell.titleLabel.textColor = .orange
+            
+            if let previousIndex = self.previousIndex {
+                let prevCell = collectionView.cellForItem(at: IndexPath(row: previousIndex, section: 0)) as! CategoryCollectionViewCell
+                prevCell.titleLabel.textColor = .black
+            }
         }
     }
     
