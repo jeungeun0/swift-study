@@ -8,5 +8,7 @@
 import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
+    static let identifier = "CategoryCollectionViewCell"
     
+    @IBOutlet weak var titleLabel: UILabel!
 }

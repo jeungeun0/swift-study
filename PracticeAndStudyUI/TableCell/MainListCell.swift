@@ -9,6 +9,8 @@ import UIKit
 
 class MainListCell: UITableViewCell {
 
+    static let identifier = "MainListCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
