@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BE2EDF98780B65FA4CF7F768 /* Pods_StudyLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FBB4A640F5096B57830D55 /* Pods_StudyLogin.framework */; };
+		DD2219F72834DD780070C00A /* AppleLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2219F62834DD780070C00A /* AppleLoginViewController.swift */; };
 		DDF085D42831E8B0004FF351 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF085D32831E8B0004FF351 /* AppDelegate.swift */; };
 		DDF085D62831E8B0004FF351 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF085D52831E8B0004FF351 /* SceneDelegate.swift */; };
 		DDF085D82831E8B0004FF351 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF085D72831E8B0004FF351 /* ViewController.swift */; };
@@ -20,6 +21,8 @@
 		23FBB4A640F5096B57830D55 /* Pods_StudyLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26EB970699075C979B87A92A /* Pods-StudyLogin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyLogin.debug.xcconfig"; path = "Target Support Files/Pods-StudyLogin/Pods-StudyLogin.debug.xcconfig"; sourceTree = "<group>"; };
 		873C66BCFDE765EA0A28C771 /* Pods-StudyLogin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyLogin.release.xcconfig"; path = "Target Support Files/Pods-StudyLogin/Pods-StudyLogin.release.xcconfig"; sourceTree = "<group>"; };
+		DD2219F62834DD780070C00A /* AppleLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginViewController.swift; sourceTree = "<group>"; };
+		DD2219F82834E0C40070C00A /* StudyLogin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StudyLogin.entitlements; sourceTree = "<group>"; };
 		DDF085D02831E8B0004FF351 /* StudyLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF085D32831E8B0004FF351 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDF085D52831E8B0004FF351 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +75,7 @@
 		DDF085D22831E8B0004FF351 /* StudyLogin */ = {
 			isa = PBXGroup;
 			children = (
+				DD2219F82834E0C40070C00A /* StudyLogin.entitlements */,
 				DDF085D32831E8B0004FF351 /* AppDelegate.swift */,
 				DDF085D52831E8B0004FF351 /* SceneDelegate.swift */,
 				DDF085D72831E8B0004FF351 /* ViewController.swift */,
@@ -79,6 +83,7 @@
 				DDF085DC2831E8B1004FF351 /* Assets.xcassets */,
 				DDF085DE2831E8B1004FF351 /* LaunchScreen.storyboard */,
 				DDF085E12831E8B1004FF351 /* Info.plist */,
+				DD2219F62834DD780070C00A /* AppleLoginViewController.swift */,
 			);
 			path = StudyLogin;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				DDF085D82831E8B0004FF351 /* ViewController.swift in Sources */,
 				DDF085D42831E8B0004FF351 /* AppDelegate.swift in Sources */,
 				DDF085D62831E8B0004FF351 /* SceneDelegate.swift in Sources */,
+				DD2219F72834DD780070C00A /* AppleLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +360,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = StudyLogin/StudyLogin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M824QZSP2W;
@@ -384,6 +391,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = StudyLogin/StudyLogin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M824QZSP2W;
