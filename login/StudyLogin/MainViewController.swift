@@ -20,8 +20,6 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func logout(_ sender: Any) {
-        UserDefaults.standard.removeObject(forKey: Global.shared.KEY_EMAIL)
-        UserDefaults.standard.removeObject(forKey: Global.shared.KEY_USER_NAME)
         UserDefaults.standard.removeObject(forKey: Global.shared.KEY_USER_ID)
         
         let alert = UIAlertController(title: "로그아웃", message: "로그아웃되셨습니다.", preferredStyle: .alert)

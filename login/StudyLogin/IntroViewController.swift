@@ -25,7 +25,7 @@ class IntroViewController: UIViewController {
         super.viewDidAppear(animated)
         //로그인이 되어 있으면 메인으로 보내고
         //로그인이 안 되어 있으면 로그인으로 보낸다.
-        if UserDefaults.standard.value(forKey: Global.shared.KEY_EMAIL) != nil {
+        if UserDefaults.standard.value(forKey: Global.shared.KEY_USER_ID) != nil {
             performSegue(withIdentifier: "toMain", sender: nil)
         } else {
             performSegue(withIdentifier: "toSignIn", sender: nil)
