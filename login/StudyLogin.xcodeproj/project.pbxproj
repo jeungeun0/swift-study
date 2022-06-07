@@ -8,10 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		BE2EDF98780B65FA4CF7F768 /* Pods_StudyLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FBB4A640F5096B57830D55 /* Pods_StudyLogin.framework */; };
-		DD2219F72834DD780070C00A /* AppleLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2219F62834DD780070C00A /* AppleLoginViewController.swift */; };
+		DD2219F72834DD780070C00A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2219F62834DD780070C00A /* SignInViewController.swift */; };
+		DDE6E008284F1619000DC2D0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE6E007284F1619000DC2D0 /* SignUpViewController.swift */; };
+		DDE6E00A284F2167000DC2D0 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE6E009284F2167000DC2D0 /* HoshiTextField.swift */; };
+		DDE6E00C284F217E000DC2D0 /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE6E00B284F217E000DC2D0 /* TextFieldEffects.swift */; };
+		DDE6E00E284F36BF000DC2D0 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDE6E00D284F36BF000DC2D0 /* SignIn.storyboard */; };
+		DDE6E010284F3795000DC2D0 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDE6E00F284F3795000DC2D0 /* SignUp.storyboard */; };
+		DDE6E012284F3851000DC2D0 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDE6E011284F3851000DC2D0 /* Intro.storyboard */; };
+		DDE6E014284F387B000DC2D0 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE6E013284F387B000DC2D0 /* IntroViewController.swift */; };
+		DDE6E016284F3A70000DC2D0 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE6E015284F3A70000DC2D0 /* Global.swift */; };
+		DDE6E018284F3AE4000DC2D0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE6E017284F3AE4000DC2D0 /* User.swift */; };
 		DDF085D42831E8B0004FF351 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF085D32831E8B0004FF351 /* AppDelegate.swift */; };
 		DDF085D62831E8B0004FF351 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF085D52831E8B0004FF351 /* SceneDelegate.swift */; };
-		DDF085D82831E8B0004FF351 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF085D72831E8B0004FF351 /* ViewController.swift */; };
+		DDF085D82831E8B0004FF351 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF085D72831E8B0004FF351 /* MainViewController.swift */; };
 		DDF085DB2831E8B0004FF351 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDF085D92831E8B0004FF351 /* Main.storyboard */; };
 		DDF085DD2831E8B1004FF351 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDF085DC2831E8B1004FF351 /* Assets.xcassets */; };
 		DDF085E02831E8B1004FF351 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDF085DE2831E8B1004FF351 /* LaunchScreen.storyboard */; };
@@ -21,12 +30,21 @@
 		23FBB4A640F5096B57830D55 /* Pods_StudyLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26EB970699075C979B87A92A /* Pods-StudyLogin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyLogin.debug.xcconfig"; path = "Target Support Files/Pods-StudyLogin/Pods-StudyLogin.debug.xcconfig"; sourceTree = "<group>"; };
 		873C66BCFDE765EA0A28C771 /* Pods-StudyLogin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyLogin.release.xcconfig"; path = "Target Support Files/Pods-StudyLogin/Pods-StudyLogin.release.xcconfig"; sourceTree = "<group>"; };
-		DD2219F62834DD780070C00A /* AppleLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginViewController.swift; sourceTree = "<group>"; };
+		DD2219F62834DD780070C00A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		DD2219F82834E0C40070C00A /* StudyLogin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StudyLogin.entitlements; sourceTree = "<group>"; };
+		DDE6E007284F1619000DC2D0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		DDE6E009284F2167000DC2D0 /* HoshiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
+		DDE6E00B284F217E000DC2D0 /* TextFieldEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
+		DDE6E00D284F36BF000DC2D0 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
+		DDE6E00F284F3795000DC2D0 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		DDE6E011284F3851000DC2D0 /* Intro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
+		DDE6E013284F387B000DC2D0 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		DDE6E015284F3A70000DC2D0 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		DDE6E017284F3AE4000DC2D0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DDF085D02831E8B0004FF351 /* StudyLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF085D32831E8B0004FF351 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDF085D52831E8B0004FF351 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DDF085D72831E8B0004FF351 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DDF085D72831E8B0004FF351 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DDF085DA2831E8B0004FF351 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDF085DC2831E8B1004FF351 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDF085DF2831E8B1004FF351 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,14 +94,23 @@
 			isa = PBXGroup;
 			children = (
 				DD2219F82834E0C40070C00A /* StudyLogin.entitlements */,
+				DDE6E015284F3A70000DC2D0 /* Global.swift */,
 				DDF085D32831E8B0004FF351 /* AppDelegate.swift */,
 				DDF085D52831E8B0004FF351 /* SceneDelegate.swift */,
-				DDF085D72831E8B0004FF351 /* ViewController.swift */,
 				DDF085D92831E8B0004FF351 /* Main.storyboard */,
+				DDF085D72831E8B0004FF351 /* MainViewController.swift */,
 				DDF085DC2831E8B1004FF351 /* Assets.xcassets */,
 				DDF085DE2831E8B1004FF351 /* LaunchScreen.storyboard */,
 				DDF085E12831E8B1004FF351 /* Info.plist */,
-				DD2219F62834DD780070C00A /* AppleLoginViewController.swift */,
+				DDE6E009284F2167000DC2D0 /* HoshiTextField.swift */,
+				DDE6E00B284F217E000DC2D0 /* TextFieldEffects.swift */,
+				DDE6E00D284F36BF000DC2D0 /* SignIn.storyboard */,
+				DD2219F62834DD780070C00A /* SignInViewController.swift */,
+				DDE6E00F284F3795000DC2D0 /* SignUp.storyboard */,
+				DDE6E007284F1619000DC2D0 /* SignUpViewController.swift */,
+				DDE6E011284F3851000DC2D0 /* Intro.storyboard */,
+				DDE6E013284F387B000DC2D0 /* IntroViewController.swift */,
+				DDE6E017284F3AE4000DC2D0 /* User.swift */,
 			);
 			path = StudyLogin;
 			sourceTree = "<group>";
@@ -156,9 +183,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDE6E00E284F36BF000DC2D0 /* SignIn.storyboard in Resources */,
 				DDF085E02831E8B1004FF351 /* LaunchScreen.storyboard in Resources */,
 				DDF085DD2831E8B1004FF351 /* Assets.xcassets in Resources */,
 				DDF085DB2831E8B0004FF351 /* Main.storyboard in Resources */,
+				DDE6E010284F3795000DC2D0 /* SignUp.storyboard in Resources */,
+				DDE6E012284F3851000DC2D0 /* Intro.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,10 +241,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDF085D82831E8B0004FF351 /* ViewController.swift in Sources */,
+				DDE6E00C284F217E000DC2D0 /* TextFieldEffects.swift in Sources */,
+				DDF085D82831E8B0004FF351 /* MainViewController.swift in Sources */,
 				DDF085D42831E8B0004FF351 /* AppDelegate.swift in Sources */,
+				DDE6E008284F1619000DC2D0 /* SignUpViewController.swift in Sources */,
+				DDE6E00A284F2167000DC2D0 /* HoshiTextField.swift in Sources */,
 				DDF085D62831E8B0004FF351 /* SceneDelegate.swift in Sources */,
-				DD2219F72834DD780070C00A /* AppleLoginViewController.swift in Sources */,
+				DD2219F72834DD780070C00A /* SignInViewController.swift in Sources */,
+				DDE6E014284F387B000DC2D0 /* IntroViewController.swift in Sources */,
+				DDE6E018284F3AE4000DC2D0 /* User.swift in Sources */,
+				DDE6E016284F3A70000DC2D0 /* Global.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +326,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -344,6 +381,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -368,7 +406,7 @@
 				INFOPLIST_FILE = StudyLogin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -399,7 +437,7 @@
 				INFOPLIST_FILE = StudyLogin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
