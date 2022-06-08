@@ -118,15 +118,25 @@ class SignUpViewController: UIViewController {
                             print(error.localizedDescription)
                         } else {
                             print("me() success.")
-                            let email = user?.kakaoAccount?.email
-                            let nickName = user?.kakaoAccount?.name
-                            let name = user?.kakaoAccount?.legalName
-                            let image = user?.kakaoAccount?.profileImageNeedsAgreement
                             
-                            print(email)
-                            print(nickName)
-                            print(name)
-                            print(image)
+                            let image = user?.kakaoAccount?.profile?.profileImageUrl
+                            
+                            if let email = user?.kakaoAccount?.email {
+                                UserDefaults.standard.set(email, forKey: Global.shared.KEY_EMAIL)
+                            }
+                            
+                            if let name = user?.kakaoAccount?.legalName {
+                                UserDefaults.standard.set(name, forKey: Global.shared.KEY_USER_NAME)
+                            } else if let nickName = user?.kakaoAccount?.profile?.nickname {
+                                UserDefaults.standard.set(nickName, forKey: Global.shared.KEY_USER_NAME)
+                            }
+                            
+                            if let id = user?.id {
+                                UserDefaults.standard.set(id, forKey: Global.shared.KEY_USER_ID)
+                            }
+                            
+                            Util.shared.changeRoot(storyboardName: "Main", destinationIdentifier: "Main")
+                            
                         }
                     }
                 }
@@ -142,15 +152,25 @@ class SignUpViewController: UIViewController {
                             print(error.localizedDescription)
                         } else {
                             print("me() success.")
-                            let email = user?.kakaoAccount?.email
-                            let nickName = user?.kakaoAccount?.name
-                            let name = user?.kakaoAccount?.legalName
-                            let image = user?.kakaoAccount?.profileImageNeedsAgreement
                             
-                            print(email)
-                            print(nickName)
-                            print(name)
-                            print(image)
+                            let image = user?.kakaoAccount?.profile?.profileImageUrl
+                            
+                            
+                            if let email = user?.kakaoAccount?.email {
+                                UserDefaults.standard.set(email, forKey: Global.shared.KEY_EMAIL)
+                            }
+                            
+                            if let name = user?.kakaoAccount?.legalName {
+                                UserDefaults.standard.set(name, forKey: Global.shared.KEY_USER_NAME)
+                            } else if let nickName = user?.kakaoAccount?.profile?.nickname {
+                                UserDefaults.standard.set(nickName, forKey: Global.shared.KEY_USER_NAME)
+                            }
+                            
+                            if let id = user?.id {
+                                UserDefaults.standard.set(id, forKey: Global.shared.KEY_USER_ID)
+                            }
+                            
+                            Util.shared.changeRoot(storyboardName: "Main", destinationIdentifier: "Main")
                         }
                     }
                 }
