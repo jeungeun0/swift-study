@@ -14,4 +14,6 @@ open class Global {
     let KEY_USER_ID = "USER_IDENTIFIER"
     let KEY_USER_NAME = "FULL_NAME"
     
+    var FIRST_REGISTER = ""
+    
 }

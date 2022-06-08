@@ -11,10 +11,6 @@ import AuthenticationServices
 class SignUpViewController: UIViewController {
     
     //MARK: - Properties
-    var isSignIn: Bool = false
-    let userIDKey = "USER_IDENTIFIER"
-    let emailKey = "EMAIL"
-    let nameKey = "FULL_NAME"
     var appleIDProvider: ASAuthorizationAppleIDProvider = ASAuthorizationAppleIDProvider()
 
     override func viewDidLoad() {
@@ -30,51 +26,49 @@ class SignUpViewController: UIViewController {
     
     func addButton() {
         addAppleButton()
+        addEmailButton()
+    }
+    
+    //일반 email 회원가입 버튼
+    func addEmailButton() {
+        let button = UIButton()
+        button.setTitle("E-Mail 회원가입", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 8
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(signupEmail), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(button)
+        DispatchQueue.main.async {
+            NSLayoutConstraint.activate([button.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
+                                         button.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -24),
+                                         button.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -(24 + 50 + 15)),
+                                         button.heightAnchor.constraint(equalToConstant: 50)])
+        }
+        
     }
     
     //Apple ID 로그인 버튼 생성
     func addAppleButton() {
-        if isSignIn {
-            
-            let button = ASAuthorizationAppleIDButton(type: .signIn, style: .whiteOutline)
-            button.addTarget(self, action: #selector(appleSignInButtonPress), for: .touchUpInside)
-            self.view.addSubview(button)
-            button.translatesAutoresizingMaskIntoConstraints = false
-            DispatchQueue.main.async {
-                NSLayoutConstraint.activate([button.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
-                                             button.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -24),
-                                             button.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -24),
-                                             button.heightAnchor.constraint(equalToConstant: 50)])
-            }
-        } else {
-            let button = ASAuthorizationAppleIDButton(type: .signUp, style: .whiteOutline)
-            button.addTarget(self, action: #selector(self.appleSignUpButtonPress), for: .touchUpInside)
-            self.view.addSubview(button)
-            button.translatesAutoresizingMaskIntoConstraints = false
-            DispatchQueue.main.async {
-                NSLayoutConstraint.activate([button.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
-                                             button.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -24),
-                                             button.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -24),
-                                             button.heightAnchor.constraint(equalToConstant: 50)])
-            }
+        let button = ASAuthorizationAppleIDButton(type: .signUp, style: .black)
+        button.addTarget(self, action: #selector(self.appleSignUpButtonPress), for: .touchUpInside)
+        self.view.addSubview(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        DispatchQueue.main.async {
+            NSLayoutConstraint.activate([button.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
+                                         button.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -24),
+                                         button.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -24),
+                                         button.heightAnchor.constraint(equalToConstant: 50)])
         }
     
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
-    @objc func appleSignInButtonPress() {
-        let request = appleIDProvider.createRequest()
-        request.requestedScopes = [.fullName, .email]
-        
-        authorizationController(request: request)
+    @objc func signupEmail() {
+        let alert = UIAlertController(title: "준비중", message: "해당 서비스는 준비중입니다.", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(ok)
+        present(alert, animated: true)
     }
     
     @objc func appleSignUpButtonPress() {
@@ -91,8 +85,8 @@ class SignUpViewController: UIViewController {
     }
     
     func getStatusOfApple(callback: @escaping (_ state: ASAuthorizationAppleIDProvider.CredentialState?) -> Void) {
-        if UserDefaults.standard.string(forKey: userIDKey) != nil {
-            appleIDProvider.getCredentialState(forUserID: UserDefaults.standard.string(forKey: userIDKey)!) { state, error in
+        if UserDefaults.standard.string(forKey: Global.shared.KEY_USER_ID) != nil {
+            appleIDProvider.getCredentialState(forUserID: UserDefaults.standard.string(forKey: Global.shared.KEY_USER_ID)!) { state, error in
                 switch state {
                 case .authorized:
                     print("==> authorized")
@@ -118,7 +112,6 @@ class SignUpViewController: UIViewController {
             callback(nil)
         }
     }
-
 }
 extension SignUpViewController: ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate {
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
@@ -145,13 +138,49 @@ extension SignUpViewController: ASAuthorizationControllerPresentationContextProv
             print("User Email: \(String(describing: email))")
             print("User Name: \(String(describing: fullName))")
             
-            UserDefaults.standard.set(userIdentifier, forKey: userIDKey)
+            UserDefaults.standard.set(userIdentifier, forKey: Global.shared.KEY_USER_ID)
+            
             if email != nil {
-                UserDefaults.standard.set(email, forKey: emailKey)
+                UserDefaults.standard.set(email!, forKey: Global.shared.KEY_EMAIL)
+                if Global.shared.FIRST_REGISTER == "" {
+                    Global.shared.FIRST_REGISTER = email!
+                    
+                    let alert = UIAlertController(title: "알림", message: "회원가입되었습니다.", preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "확인", style: .default) { _ in
+                        if fullName != nil {
+                            UserDefaults.standard.set(fullName?.familyName, forKey: Global.shared.KEY_USER_NAME)
+                        }
+
+                        Util.shared.changeRoot(storyboardName: "Main", destinationIdentifier: "Main")
+                    }
+
+                    alert.addAction(ok)
+
+                    self.present(alert, animated: true)
+                } else if Global.shared.FIRST_REGISTER == email {
+                    //우리 서버에서 사용자가 가입한 이메일인지 확인
+                    let alert = UIAlertController(title: "알림", message: "이미 가입된 아이디가 있습니다.\n로그인하시겠습니까?", preferredStyle: .alert)
+                    let cancel = UIAlertAction(title: "취소", style: .cancel) { _ in
+                        let cancelAlert = UIAlertController(title: "알림", message: "동일한 아이디로 가입이 불가합니다. 다른 간편회원가입을 이용하여 가입해주시기 바랍니다.", preferredStyle: .alert)
+                        let cancelOk = UIAlertAction(title: "확인", style: .default)
+                        cancelAlert.addAction(cancelOk)
+                        self.present(cancelAlert, animated: true)
+                    }
+                    let ok = UIAlertAction(title: "확인", style: .default) { _ in
+                        if fullName != nil {
+                            UserDefaults.standard.set(fullName?.familyName, forKey: Global.shared.KEY_USER_NAME)
+                        }
+
+                        Util.shared.changeRoot(storyboardName: "Main", destinationIdentifier: "Main")
+                    }
+
+                    alert.addAction(ok)
+                    alert.addAction(cancel)
+
+                    self.present(alert, animated: true)
+                }
             }
-            if fullName != nil {
-                UserDefaults.standard.set(fullName?.familyName, forKey: nameKey)
-            }
+            
             break
         default: break
         }

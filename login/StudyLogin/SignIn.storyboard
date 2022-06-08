@@ -12,7 +12,6 @@
         <!--Sign In View Controller-->
         <scene sceneID="zAj-Jb-bGx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jSZ-ag-pnx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="SignIn" id="TcN-6Z-WWK" customClass="SignInViewController" customModule="StudyLogin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N2V-vr-c8k">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -96,7 +95,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
-                                                    <segue destination="WgU-8o-X8r" kind="show" id="bWV-Sq-1NV"/>
+                                                    <segue destination="WgU-8o-X8r" kind="show" identifier="toSignUp" id="bWV-Sq-1NV"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dog-ta-ILs">
@@ -157,6 +156,7 @@
                         <outlet property="tfPW" destination="GFm-y9-Ncg" id="hdv-Bw-wLr"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jSZ-ag-pnx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="775.36231884057975" y="98.4375"/>
         </scene>

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BE2EDF98780B65FA4CF7F768 /* Pods_StudyLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FBB4A640F5096B57830D55 /* Pods_StudyLogin.framework */; };
 		DD2219F72834DD780070C00A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2219F62834DD780070C00A /* SignInViewController.swift */; };
+		DD44A66128502449001C79E5 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD44A66028502449001C79E5 /* Util.swift */; };
 		DDE6E008284F1619000DC2D0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE6E007284F1619000DC2D0 /* SignUpViewController.swift */; };
 		DDE6E00A284F2167000DC2D0 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE6E009284F2167000DC2D0 /* HoshiTextField.swift */; };
 		DDE6E00C284F217E000DC2D0 /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE6E00B284F217E000DC2D0 /* TextFieldEffects.swift */; };
@@ -32,6 +33,7 @@
 		873C66BCFDE765EA0A28C771 /* Pods-StudyLogin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyLogin.release.xcconfig"; path = "Target Support Files/Pods-StudyLogin/Pods-StudyLogin.release.xcconfig"; sourceTree = "<group>"; };
 		DD2219F62834DD780070C00A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		DD2219F82834E0C40070C00A /* StudyLogin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StudyLogin.entitlements; sourceTree = "<group>"; };
+		DD44A66028502449001C79E5 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		DDE6E007284F1619000DC2D0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		DDE6E009284F2167000DC2D0 /* HoshiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
 		DDE6E00B284F217E000DC2D0 /* TextFieldEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				DDE6E011284F3851000DC2D0 /* Intro.storyboard */,
 				DDE6E013284F387B000DC2D0 /* IntroViewController.swift */,
 				DDE6E017284F3AE4000DC2D0 /* User.swift */,
+				DD44A66028502449001C79E5 /* Util.swift */,
 			);
 			path = StudyLogin;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD44A66128502449001C79E5 /* Util.swift in Sources */,
 				DDE6E00C284F217E000DC2D0 /* TextFieldEffects.swift in Sources */,
 				DDF085D82831E8B0004FF351 /* MainViewController.swift in Sources */,
 				DDF085D42831E8B0004FF351 /* AppDelegate.swift in Sources */,
@@ -415,7 +419,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kr.co.alphadopetcare;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.alphado;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -446,7 +450,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kr.co.alphadopetcare;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.alphado;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

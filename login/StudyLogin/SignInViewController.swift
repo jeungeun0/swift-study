@@ -26,11 +26,6 @@ class SignInViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toSignInOrUp" {
-            if let destination = segue.destination as? SignUpViewController, let isSignIn = sender as? Bool {
-                destination.isSignIn = isSignIn
-            }
-        }
     }
     var appleIDProvider: ASAuthorizationAppleIDProvider = ASAuthorizationAppleIDProvider()
     
@@ -84,12 +79,12 @@ class SignInViewController: UIViewController {
     }
     @objc func targetForLogin() {
         print("to login")
-        performSegue(withIdentifier: "toSignInOrUp", sender: true)
+//        performSegue(withIdentifier: "toSignInOrUp", sender: true)
     }
     
     @objc func targetForSignUp() {
         print("to sign up")
-        performSegue(withIdentifier: "toSignInOrUp", sender: false)
+        performSegue(withIdentifier: "toSignUp", sender: false)
     }
     
 }
@@ -120,6 +115,8 @@ extension SignInViewController: ASAuthorizationControllerPresentationContextProv
             if fullName != nil {
                 UserDefaults.standard.set(fullName?.familyName, forKey: Global.shared.KEY_USER_NAME)
             }
+            
+            Util.shared.changeRoot(storyboardName: "Main", destinationIdentifier: "Main")
             
             break
         default:
