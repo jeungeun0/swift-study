@@ -7,6 +7,8 @@
 
 import UIKit
 import NaverThirdPartyLogin
+import KakaoSDKCommon
+import KakaoSDKAuth
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let instance = NaverThirdPartyLoginConnection.getSharedInstance()
         //네이버 앱으로 인증하는 방식 활성화
         instance?.isNaverAppOauthEnable = true
+        //카카오 SDK 초기화 코드
+        KakaoSDK.initSDK(appKey: "5d15b24375a895bb31c4e7950ef1ea92")
         //SafariViewController에서 인증하는 방식 활성화
         instance?.isInAppOauthEnable = true
         //인증 화면을 아이폰의 세로모드에서만 적용
@@ -45,6 +49,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         NaverThirdPartyLoginConnection.getSharedInstance().application(app, open: url, options: options)
+        
+        if AuthApi.isKakaoTalkLoginUrl(url) {
+            return AuthController.handleOpenUrl(url: url)
+        }
         
         return true
     }

@@ -16,10 +16,33 @@
                     <view key="view" contentMode="scaleToFill" id="MYg-7c-HeQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="eTV-by-vaU">
+                                <rect key="frame" x="24" y="68" width="366" height="0.0"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6di-6E-XyX">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="0.0"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" id="DbS-kg-HvC"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xzm-lt-8jo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eTV-by-vaU" firstAttribute="top" secondItem="xzm-lt-8jo" secondAttribute="top" constant="24" id="4ga-qK-SgZ"/>
+                            <constraint firstItem="eTV-by-vaU" firstAttribute="leading" secondItem="xzm-lt-8jo" secondAttribute="leading" constant="24" id="WMv-1Z-arh"/>
+                            <constraint firstItem="xzm-lt-8jo" firstAttribute="trailing" secondItem="eTV-by-vaU" secondAttribute="trailing" constant="24" id="cEB-dr-EAf"/>
+                            <constraint firstItem="xzm-lt-8jo" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="eTV-by-vaU" secondAttribute="bottom" id="n6T-ku-1eQ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TRg-Ih-e4p"/>
+                    <connections>
+                        <outlet property="signupStackView" destination="eTV-by-vaU" id="K0r-vp-o5t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nRb-C3-riE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -28,10 +51,9 @@
         <!--Navigation Controller-->
         <scene sceneID="iBF-ta-3xH">
             <objects>
-                <navigationController storyboardIdentifier="SignUp" automaticallyAdjustsScrollViewInsets="NO" id="agR-up-l77" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SignUp" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="agR-up-l77" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jo1-xT-feT">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

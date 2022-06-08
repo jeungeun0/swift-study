@@ -7,10 +7,14 @@
 
 import UIKit
 import AuthenticationServices
+import KakaoSDKCommon
+import KakaoSDKAuth
+import KakaoSDKUser
 
 class SignUpViewController: UIViewController {
     
     //MARK: - Properties
+    @IBOutlet weak var signupStackView: UIStackView!
     var appleIDProvider: ASAuthorizationAppleIDProvider = ASAuthorizationAppleIDProvider()
 
     override func viewDidLoad() {
@@ -21,12 +25,18 @@ class SignUpViewController: UIViewController {
     }
     
     func setUI() {
+        signupStackView.arrangedSubviews.forEach { view in
+            signupStackView.removeArrangedSubview(view)
+            view.removeFromSuperview()
+        }
+        
         addButton()
     }
     
     func addButton() {
         addAppleButton()
         addEmailButton()
+        addKakaoButton()
     }
     
     //일반 email 회원가입 버튼
@@ -43,7 +53,7 @@ class SignUpViewController: UIViewController {
         DispatchQueue.main.async {
             NSLayoutConstraint.activate([button.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
                                          button.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -24),
-                                         button.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -(24 + 50 + 15)),
+                                         button.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -((50 + 15) * 2 + 24)),
                                          button.heightAnchor.constraint(equalToConstant: 50)])
         }
         
@@ -62,6 +72,91 @@ class SignUpViewController: UIViewController {
                                          button.heightAnchor.constraint(equalToConstant: 50)])
         }
     
+    }
+    
+    func addKakaoButton() {
+        let imageView = UIImageView(image: UIImage(named: "kakao_login_large"))
+        let button = UIButton()
+        button.addTarget(self, action: #selector(signupKakao), for: .touchUpInside)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        button.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(imageView)
+        self.view.addSubview(button)
+        
+        DispatchQueue.main.async {
+            NSLayoutConstraint.activate([imageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
+                                         imageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -24),
+                                         imageView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -(24 + 50 + 15)),
+                                         imageView.heightAnchor.constraint(equalToConstant: 50),
+                                         button.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
+                                         button.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -24),
+                                         button.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -(24 + 50 + 15)),
+                                         button.heightAnchor.constraint(equalToConstant: 50)])
+        }
+        
+    }
+    
+    @objc func signupKakao() {
+//        let alert = UIAlertController(title: "준비중", message: "해당 서비스는 준비중입니다.", preferredStyle: .alert)
+//        let ok = UIAlertAction(title: "확인", style: .default)
+//        alert.addAction(ok)
+//        present(alert, animated: true)
+        
+        //카카오톡 설치여부
+//        if AuthApi.isKakaoTalkLoginAvailable()
+        if UserApi.isKakaoTalkLoginAvailable() {
+            UserApi.shared.loginWithKakaoTalk { oauthToken, error in
+                if let error = error {
+                    //예외처리
+                } else {
+                    print("loginWithKakaoTalk() success.")
+                    
+                    //doSomthing
+                    let accessToken = oauthToken?.accessToken
+                    UserApi.shared.me { user, error in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        } else {
+                            print("me() success.")
+                            let email = user?.kakaoAccount?.email
+                            let nickName = user?.kakaoAccount?.name
+                            let name = user?.kakaoAccount?.legalName
+                            let image = user?.kakaoAccount?.profileImageNeedsAgreement
+                            
+                            print(email)
+                            print(nickName)
+                            print(name)
+                            print(image)
+                        }
+                    }
+                }
+            }
+        } else {
+            UserApi.shared.loginWithKakaoAccount { oauthToken, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    //doSomething
+                    UserApi.shared.me { user, error in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        } else {
+                            print("me() success.")
+                            let email = user?.kakaoAccount?.email
+                            let nickName = user?.kakaoAccount?.name
+                            let name = user?.kakaoAccount?.legalName
+                            let image = user?.kakaoAccount?.profileImageNeedsAgreement
+                            
+                            print(email)
+                            print(nickName)
+                            print(name)
+                            print(image)
+                        }
+                    }
+                }
+            }
+        }
+        
     }
     
     @objc func signupEmail() {
