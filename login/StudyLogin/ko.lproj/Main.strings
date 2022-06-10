@@ -1,0 +1,30 @@
+
+/* Class = "UIButton"; configuration.title = "회원정보"; ObjectID = "2Nm-cQ-fFE"; */
+"2Nm-cQ-fFE.configuration.title" = "회원정보";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "2Nm-cQ-fFE"; */
+"2Nm-cQ-fFE.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "회원탈퇴"; ObjectID = "3Ak-Rf-kUr"; */
+"3Ak-Rf-kUr.configuration.title" = "회원탈퇴";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "3Ak-Rf-kUr"; */
+"3Ak-Rf-kUr.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; title = "회원정보"; ObjectID = "ID1-vd-JgD"; */
+"ID1-vd-JgD.title" = "회원정보";
+
+/* Class = "UIButton"; configuration.title = "로그아웃/로그인"; ObjectID = "MFs-ir-Ume"; */
+"MFs-ir-Ume.configuration.title" = "로그아웃/로그인";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "MFs-ir-Ume"; */
+"MFs-ir-Ume.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "이메일"; ObjectID = "bze-sE-aId"; */
+"bze-sE-aId.text" = "이메일";
+
+/* Class = "UINavigationItem"; title = "Main"; ObjectID = "fNN-aq-2ZA"; */
+"fNN-aq-2ZA.title" = "Main";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "oeM-Qs-9GY"; */
+"oeM-Qs-9GY.text" = "Label";

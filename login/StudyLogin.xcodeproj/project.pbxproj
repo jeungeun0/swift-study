@@ -11,6 +11,8 @@
 		DD2219F72834DD780070C00A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2219F62834DD780070C00A /* SignInViewController.swift */; };
 		DD44A66128502449001C79E5 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD44A66028502449001C79E5 /* Util.swift */; };
 		DD44A663285097E2001C79E5 /* UserInfomationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD44A662285097E2001C79E5 /* UserInfomationViewController.swift */; };
+		DDB932D82851DE770018F2A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDB932DA2851DE770018F2A0 /* Localizable.strings */; };
+		DDB932DF2851DF750018F2A0 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB932DE2851DF750018F2A0 /* String+Extension.swift */; };
 		DDE6E008284F1619000DC2D0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE6E007284F1619000DC2D0 /* SignUpViewController.swift */; };
 		DDE6E00A284F2167000DC2D0 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE6E009284F2167000DC2D0 /* HoshiTextField.swift */; };
 		DDE6E00C284F217E000DC2D0 /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE6E00B284F217E000DC2D0 /* TextFieldEffects.swift */; };
@@ -36,6 +38,11 @@
 		DD2219F82834E0C40070C00A /* StudyLogin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StudyLogin.entitlements; sourceTree = "<group>"; };
 		DD44A66028502449001C79E5 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		DD44A662285097E2001C79E5 /* UserInfomationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfomationViewController.swift; sourceTree = "<group>"; };
+		DDB932D92851DE770018F2A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DDB932DB2851DEAD0018F2A0 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		DDB932DC2851DEAD0018F2A0 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		DDB932DD2851DEAD0018F2A0 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DDB932DE2851DF750018F2A0 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		DDE6E007284F1619000DC2D0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		DDE6E009284F2167000DC2D0 /* HoshiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
 		DDE6E00B284F217E000DC2D0 /* TextFieldEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
@@ -117,6 +124,8 @@
 				DDE6E017284F3AE4000DC2D0 /* User.swift */,
 				DD44A66028502449001C79E5 /* Util.swift */,
 				DD44A662285097E2001C79E5 /* UserInfomationViewController.swift */,
+				DDB932DA2851DE770018F2A0 /* Localizable.strings */,
+				DDB932DE2851DF750018F2A0 /* String+Extension.swift */,
 			);
 			path = StudyLogin;
 			sourceTree = "<group>";
@@ -173,6 +182,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = DDF085C72831E8B0004FF351;
 			productRefGroup = DDF085D12831E8B0004FF351 /* Products */;
@@ -192,6 +202,7 @@
 				DDE6E00E284F36BF000DC2D0 /* SignIn.storyboard in Resources */,
 				DDF085E02831E8B1004FF351 /* LaunchScreen.storyboard in Resources */,
 				DDF085DD2831E8B1004FF351 /* Assets.xcassets in Resources */,
+				DDB932D82851DE770018F2A0 /* Localizable.strings in Resources */,
 				DDF085DB2831E8B0004FF351 /* Main.storyboard in Resources */,
 				DDE6E010284F3795000DC2D0 /* SignUp.storyboard in Resources */,
 				DDE6E012284F3851000DC2D0 /* Intro.storyboard in Resources */,
@@ -253,6 +264,7 @@
 				DD44A663285097E2001C79E5 /* UserInfomationViewController.swift in Sources */,
 				DDF085D42831E8B0004FF351 /* AppDelegate.swift in Sources */,
 				DDE6E008284F1619000DC2D0 /* SignUpViewController.swift in Sources */,
+				DDB932DF2851DF750018F2A0 /* String+Extension.swift in Sources */,
 				DDE6E00A284F2167000DC2D0 /* HoshiTextField.swift in Sources */,
 				DDF085D62831E8B0004FF351 /* SceneDelegate.swift in Sources */,
 				DD2219F72834DD780070C00A /* SignInViewController.swift in Sources */,
@@ -265,10 +277,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		DDB932DA2851DE770018F2A0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDB932D92851DE770018F2A0 /* en */,
+				DDB932DD2851DEAD0018F2A0 /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		DDF085D92831E8B0004FF351 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				DDF085DA2831E8B0004FF351 /* Base */,
+				DDB932DB2851DEAD0018F2A0 /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -277,6 +299,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DDF085DF2831E8B1004FF351 /* Base */,
+				DDB932DC2851DEAD0018F2A0 /* ko */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -288,6 +311,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -349,6 +373,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

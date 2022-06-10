@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 class User {
+    
+    static let shared: User = User()
     
     enum UserInfomation: String {
         case email = "이메일"
@@ -17,25 +20,134 @@ class User {
         case age = "연령대"
         case birth = "생일"
         case thumbnail = "썸네일"
+        case identifier = "고유번호"
+        
+        func getKey() -> String {
+            switch self {
+            case .email:
+                return UserInfomation.email.rawValue + "_E-Mail"
+            case .name:
+                return UserInfomation.name.rawValue + "_Name"
+            case .nickName:
+                return UserInfomation.nickName.rawValue + "_NickName"
+            case .gender:
+                return UserInfomation.gender.rawValue + "_Gender"
+            case .age:
+                return UserInfomation.age.rawValue + "_Age"
+            case .birth:
+                return UserInfomation.birth.rawValue + "_Birth"
+            case .thumbnail:
+                return UserInfomation.thumbnail.rawValue + "_Thumbnail"
+            case .identifier:
+                return UserInfomation.identifier.rawValue + "_Identifier"
+            }
+        }
+    }
+    //TODO: - 키체인으로 바꾸어야 함
+    var identifier: String? {
+        get {
+            return UserDefaults.standard.string(forKey: UserInfomation.identifier.getKey())
+        }
+        set {
+            if let newValue = newValue {
+                UserDefaults.standard.setValue(newValue, forKey: UserInfomation.identifier.getKey())
+            }
+        }
+    }
+    var email: String? {
+        get {
+            return UserDefaults.standard.string(forKey: UserInfomation.email.getKey())
+        }
+        set {
+            if let newValue = newValue {
+                UserDefaults.standard.setValue(newValue, forKey: UserInfomation.email.getKey())
+            }
+        }
+    }
+    var name: String? {
+        get {
+            return UserDefaults.standard.string(forKey: UserInfomation.name.getKey())
+        }
+        set {
+            if let newValue = newValue {
+                UserDefaults.standard.setValue(newValue, forKey: UserInfomation.name.getKey())
+            }
+        }
+    }
+    var nickName: String? {
+        get {
+            return UserDefaults.standard.string(forKey: UserInfomation.nickName.getKey())
+        }
+        set {
+            if let newValue = newValue {
+                UserDefaults.standard.setValue(newValue, forKey: UserInfomation.nickName.getKey())
+            }
+        }
+    }
+    var gender: String? {
+        get {
+            return UserDefaults.standard.string(forKey: UserInfomation.gender.getKey())
+        }
+        set {
+            if let newValue = newValue {
+                UserDefaults.standard.setValue(newValue, forKey: UserInfomation.gender.getKey())
+            }
+        }
+    }
+    var age: String? {
+        get {
+            return UserDefaults.standard.string(forKey: UserInfomation.age.getKey())
+        }
+        set {
+            if let newValue = newValue {
+                UserDefaults.standard.setValue(newValue, forKey: UserInfomation.age.getKey())
+            }
+        }
+    }
+    var birth: String? {
+        get {
+            return UserDefaults.standard.string(forKey: UserInfomation.birth.getKey())
+        }
+        set {
+            if let newValue = newValue {
+                UserDefaults.standard.setValue(newValue, forKey: UserInfomation.birth.getKey())
+            }
+        }
+    }
+    var thumbnail: UIImage? {
+        get {
+            return UserDefaults.standard.object(forKey: UserInfomation.thumbnail.getKey()) as? UIImage
+        }
+        set {
+            if let newValue = newValue {
+                UserDefaults.standard.setValue(newValue, forKey: UserInfomation.thumbnail.getKey())
+            }
+        }
     }
     
-    let identifier: String
-    let email: String
-    let name: String?
-    let nickName: String?
-    let gender: String?
-    let age: String?
-    let birth: String?
-    let thumbnail: String?
-    
-    init(identifier: String, email: String, name: String? = nil, nickName: String? = nil, gender: String? = nil, age: String? = nil, birth: String? = nil, thumbnail: String? = nil) {
-        self.identifier = identifier
-        self.email = email
-        self.name = name
-        self.nickName = nickName
-        self.gender = gender
-        self.age = age
-        self.birth = birth
-        self.thumbnail = thumbnail
+    func removeIdentifier() {
+        UserDefaults.standard.removeObject(forKey: UserInfomation.identifier.getKey())
     }
+    
+    func removeAllData() {
+        UserDefaults.standard.removeObject(forKey: UserInfomation.identifier.getKey())
+        UserDefaults.standard.removeObject(forKey: UserInfomation.email.getKey())
+        UserDefaults.standard.removeObject(forKey: UserInfomation.name.getKey())
+        UserDefaults.standard.removeObject(forKey: UserInfomation.nickName.getKey())
+        UserDefaults.standard.removeObject(forKey: UserInfomation.gender.getKey())
+        UserDefaults.standard.removeObject(forKey: UserInfomation.age.getKey())
+        UserDefaults.standard.removeObject(forKey: UserInfomation.birth.getKey())
+        UserDefaults.standard.removeObject(forKey: UserInfomation.thumbnail.getKey())
+    }
+    
+//    init(identifier: String, email: String, name: String? = nil, nickName: String? = nil, gender: String? = nil, age: String? = nil, birth: String? = nil, thumbnail: UIImage? = nil) {
+//        self.identifier = identifier
+//        self.email = email
+//        self.name = name
+//        self.nickName = nickName
+//        self.gender = gender
+//        self.age = age
+//        self.birth = birth
+//        self.thumbnail = thumbnail
+//    }
 }
