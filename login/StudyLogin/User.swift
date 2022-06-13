@@ -12,6 +12,13 @@ class User {
     
     static let shared: User = User()
     
+    enum LoginKind: Int {
+        case Apple = 0
+        case Kakao
+        case Naver
+        case Email
+    }
+    
     enum UserInfomation: String {
         case email = "이메일"
         case name = "이름"
@@ -21,6 +28,7 @@ class User {
         case birth = "생일"
         case thumbnail = "썸네일"
         case identifier = "고유번호"
+        case snsKind = "SNS로그인종류"
         
         func getKey() -> String {
             switch self {
@@ -40,10 +48,25 @@ class User {
                 return UserInfomation.thumbnail.rawValue + "_Thumbnail"
             case .identifier:
                 return UserInfomation.identifier.rawValue + "_Identifier"
+            case .snsKind:
+                return UserInfomation.snsKind.rawValue + "_LoginKind"
             }
         }
     }
     //TODO: - 키체인으로 바꾸어야 함
+    
+    var snsKind: LoginKind? {
+        get {
+            let rawValue = UserDefaults.standard.integer(forKey: UserInfomation.snsKind.getKey())
+            let loginKind = LoginKind(rawValue: rawValue)
+            return loginKind
+        }
+        set {
+            if let newValue = newValue {
+                UserDefaults.standard.setValue(newValue.rawValue, forKey: UserInfomation.snsKind.getKey())
+            }
+        }
+    }
     var identifier: String? {
         get {
             return UserDefaults.standard.string(forKey: UserInfomation.identifier.getKey())
@@ -130,6 +153,7 @@ class User {
     }
     
     func removeAllData() {
+        UserDefaults.standard.removeObject(forKey: UserInfomation.snsKind.getKey())
         UserDefaults.standard.removeObject(forKey: UserInfomation.identifier.getKey())
         UserDefaults.standard.removeObject(forKey: UserInfomation.email.getKey())
         UserDefaults.standard.removeObject(forKey: UserInfomation.name.getKey())

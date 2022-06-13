@@ -11,10 +11,5 @@ open class Global {
     static let shared = Global()
     
     var FIRST_REGISTER = ""
-    var loginKind: LoginKine?
-    
-    enum LoginKine {
-        case Apple, Kakao, Naver, Email
-    }
     
 }
