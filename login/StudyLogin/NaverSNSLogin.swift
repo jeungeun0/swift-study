@@ -11,10 +11,13 @@ import Alamofire
 
 class NaverSNSLogin: NSObject {
     
+    //싱글톤 접근 상수
     static let shared: NaverSNSLogin = NaverSNSLogin()
     
+    //네이버 로그인 인스턴스
     private let instance = NaverThirdPartyLoginConnection.getSharedInstance()
     
+    //네이버 로그인 성공시 처리
     var success: ((_ loginData: NaverLogin) -> Void)? = { loginData in
         AlphadoUser.shared.snsKind = .Naver
         AlphadoUser.shared.email = loginData.response.email
@@ -22,10 +25,12 @@ class NaverSNSLogin: NSObject {
         AlphadoUser.shared.identifier = loginData.response.id
         Util.shared.changeRoot(storyboardName: "Main", destinationIdentifier: "Main")
     }
+    //네이버 로그인 실패시 처리
     var failure: ((_ error: AFError) -> Void)? = { error in
         print(error.localizedDescription)
     }
     
+    //네이버 사용자 정보를 받아올 구조체
     struct NaverLogin: Decodable {
         var resultCode: String
         var response: Response
@@ -44,6 +49,7 @@ class NaverSNSLogin: NSObject {
         }
     }
     
+    // 사용자 정보를 받아오기 전에 토큰 체크
     private func getInfo() {
         
         guard let isValidAccessToken = instance?.isValidAccessTokenExpireTimeNow() else {
@@ -61,28 +67,33 @@ class NaverSNSLogin: NSObject {
         }
     }
     
+    //로그인 한다.
     func login() {
         instance?.delegate = self
         instance?.requestThirdPartyLogin()
     }
     
+    //토큰을 갱신한다.
     func refreshToken() {
         instance?.delegate = self
         self.instance?.requestAccessTokenWithRefreshToken()
     }
     
+    //로그아웃한다.
     func logout() {
         instance?.delegate = self
         AlphadoUser.shared.removeAllData()
         instance?.resetToken()
     }
     
+    //네이버 로그인 서비스 연결을 해지한다.
     func disConnect() {
         instance?.delegate = self
         AlphadoUser.shared.removeAllData()
         instance?.requestDeleteToken()
     }
     
+    //사용자 정보를 받아온다.
     func userInfo() {
         
         guard let tokenType = instance?.tokenType else { return }
@@ -123,22 +134,23 @@ class NaverSNSLogin: NSObject {
 }
 
 
+//MARK: - Naver Login Delegate
 extension NaverSNSLogin: NaverThirdPartyLoginConnectionDelegate {
-    // 로그인에 성공한 경우 호출
+    // 로그인에 성공한 경우 호출 됨
     func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
         print("네이버 로그인 성공")
         getInfo()
     }
-    // 토큰 갱신 성공 시 호출
+    // 토큰 갱신 성공 시 호출 됨
     func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
         print("네이버 토큰 갱신 성공")
         getInfo()
     }
-    // 연동해제 성공한 경우 호출
+    // 연동해제 성공한 경우 호출 됨
     func oauth20ConnectionDidFinishDeleteToken() {
         print("네이버 연동 해제 성공")
     }
-    // 모든 error
+    // 모든 error인 경우 호출 됨
     func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
         let alert = UIAlertController(title: "네이버 SNS 로그인 실패", message: "이유: \(String(error.localizedDescription))\n문제가 반복된다면 관리자에게 문의하세요.", preferredStyle: .alert)
         let ok = UIAlertAction(title: "확인", style: .default)
