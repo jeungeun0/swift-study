@@ -8,10 +8,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>alphadopetplus</string>
+			<string>naverlogin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>alphadopetplus</string>
+				<string>naverlogin</string>
 			</array>
 		</dict>
 		<dict>
@@ -25,8 +25,8 @@
 	</array>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-        <string>naversearchapp</string>
-        <string>naversearchthirdlogin</string>
+		<string>naversearchapp</string>
+		<string>naversearchthirdlogin</string>
 		<string>kakaokompassauth</string>
 		<string>kakaolink</string>
 	</array>
