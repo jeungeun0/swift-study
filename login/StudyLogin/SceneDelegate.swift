@@ -50,7 +50,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        
+        openUrlHandlerOfNaver(URLContexts: URLContexts)
+        openUrlHandlerOfKakao(URLContexts: URLContexts)
+        
+    }
+
+
+}
+
+//MARK: - SNS Login
+extension SceneDelegate {
+    func openUrlHandlerOfNaver(URLContexts: Set<UIOpenURLContext>) {
         NaverThirdPartyLoginConnection.getSharedInstance().receiveAccessToken(URLContexts.first?.url)
+    }
+    
+    func openUrlHandlerOfKakao(URLContexts: Set<UIOpenURLContext>) {
         
         if let url = URLContexts.first?.url {
             if AuthApi.isKakaoTalkLoginUrl(url) {
@@ -58,7 +73,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         }
     }
-
-
 }
-

@@ -15,24 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        settingNaverSNSLogin()
+        settingKakaoSNSLogin()
         
-        let instance = NaverThirdPartyLoginConnection.getSharedInstance()
-        //네이버 앱으로 인증하는 방식 활성화
-        instance?.isNaverAppOauthEnable = true
-        //카카오 SDK 초기화 코드
-        KakaoSDK.initSDK(appKey: "5d15b24375a895bb31c4e7950ef1ea92")
-        //SafariViewController에서 인증하는 방식 활성화
-        instance?.isInAppOauthEnable = true
-        //인증 화면을 아이폰의 세로모드에서만 적용
-        instance?.isOnlyPortraitSupportedInIphone()
-        
-        instance?.serviceUrlScheme = kServiceAppUrlScheme
-        instance?.consumerKey = kConsumerKey
-        instance?.consumerSecret = kConsumerSecret
-        instance?.appName = kServiceAppName
         return true
     }
-
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -48,15 +36,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        NaverThirdPartyLoginConnection.getSharedInstance().application(app, open: url, options: options)
         
-        if AuthApi.isKakaoTalkLoginUrl(url) {
-            return AuthController.handleOpenUrl(url: url)
-        }
+        var result: Bool = true
+        openUrlHandlerOfNaver(app, open: url, options: options)
+        result = openUrlHandlerOfKakao(result: result, open: url)
         
-        return true
+        return result
     }
-
 
 }
 
+
+//MARK: - SNS Login
+extension AppDelegate {
+    /// 네이버 로그인 셋팅
+    func settingNaverSNSLogin() {
+        
+        let instance = NaverThirdPartyLoginConnection.getSharedInstance()
+        //네이버 앱으로 인증하는 방식 활성화
+        instance?.isNaverAppOauthEnable = true
+        //SafariViewController에서 인증하는 방식 활성화
+        instance?.isInAppOauthEnable = true
+        //인증 화면을 아이폰의 세로모드에서만 적용
+        instance?.isOnlyPortraitSupportedInIphone()
+        
+        instance?.serviceUrlScheme = kServiceAppUrlScheme
+        instance?.consumerKey = kConsumerKey
+        instance?.consumerSecret = kConsumerSecret
+        instance?.appName = kServiceAppName
+    }
+    
+    /// 카카오 로그인 셋팅
+    func settingKakaoSNSLogin() {
+        //카카오 SDK 초기화 코드
+        KakaoSDK.initSDK(appKey: "5d15b24375a895bb31c4e7950ef1ea92")
+    }
+    
+    func openUrlHandlerOfNaver(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) {
+        NaverThirdPartyLoginConnection.getSharedInstance().application(app, open: url, options: options)
+    }
+    
+    func openUrlHandlerOfKakao(result: Bool, open url: URL) -> Bool {
+        
+        if AuthApi.isKakaoTalkLoginUrl(url) {
+            if AuthController.handleOpenUrl(url: url) {
+                return true
+            }
+        }
+        
+        return result
+    }
+}
