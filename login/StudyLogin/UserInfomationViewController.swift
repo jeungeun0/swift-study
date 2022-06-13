@@ -19,7 +19,7 @@ class UserInfomationViewController: UIViewController {
     @IBOutlet weak var stackViewOfInfomationCategorys: UIStackView!
     @IBOutlet weak var stackViewOfInfomations: UIStackView!
     
-    var infomationData: [(User.UserInfomation, Any)] = []
+    var infomationData: [(AlphadoUser.UserInfomation, Any)] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -19,28 +19,28 @@ class MainViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toUserInformation", let destination = segue.destination as? UserInfomationViewController {
-            var data: [(User.UserInfomation, Any)] = []
+            var data: [(AlphadoUser.UserInfomation, Any)] = []
             
-            if User.shared.email != nil {
-                data.append((.email, User.shared.email!))
+            if AlphadoUser.shared.email != nil {
+                data.append((.email, AlphadoUser.shared.email!))
             }
-            if User.shared.name != nil {
-                data.append((.name, User.shared.name!))
+            if AlphadoUser.shared.name != nil {
+                data.append((.name, AlphadoUser.shared.name!))
             }
-            if User.shared.nickName != nil {
-                data.append((.nickName, User.shared.nickName!))
+            if AlphadoUser.shared.nickName != nil {
+                data.append((.nickName, AlphadoUser.shared.nickName!))
             }
-            if User.shared.gender != nil {
-                data.append((.gender, User.shared.gender!))
+            if AlphadoUser.shared.gender != nil {
+                data.append((.gender, AlphadoUser.shared.gender!))
             }
-            if User.shared.age != nil {
-                data.append((.age, User.shared.age!))
+            if AlphadoUser.shared.age != nil {
+                data.append((.age, AlphadoUser.shared.age!))
             }
-            if User.shared.birth != nil {
-                data.append((.birth, User.shared.birth!))
+            if AlphadoUser.shared.birth != nil {
+                data.append((.birth, AlphadoUser.shared.birth!))
             }
-            if User.shared.thumbnail != nil {
-                data.append((.thumbnail, User.shared.thumbnail!))
+            if AlphadoUser.shared.thumbnail != nil {
+                data.append((.thumbnail, AlphadoUser.shared.thumbnail!))
             }
             destination.infomationData = data
         }
@@ -58,22 +58,22 @@ class MainViewController: UIViewController {
             let alert = UIAlertController(title: "로그아웃", message: "로그아웃되셨습니다.", preferredStyle: .alert)
             let ok = UIAlertAction(title: "확인", style: .default) { _ in
                 
-                if User.shared.snsKind == .Kakao {
+                if AlphadoUser.shared.snsKind == .Kakao {
                     UserApi.shared.logout { error in
                         if let error = error {
                             print(error.localizedDescription)
                         } else {
-                            User.shared.removeIdentifier()
+                            AlphadoUser.shared.removeIdentifier()
                             self.btnLogout.setTitle("로그인", for: .normal)
                             self.isLogout = false
                         }
                     }
-                } else if User.shared.snsKind == .Naver {
+                } else if AlphadoUser.shared.snsKind == .Naver {
                     NaverSNSLogin.shared.logout()
                     self.btnLogout.setTitle("로그인", for: .normal)
                     self.isLogout = false
-                } else if User.shared.snsKind == .Apple {
-                    User.shared.removeAllData()
+                } else if AlphadoUser.shared.snsKind == .Apple {
+                    AlphadoUser.shared.removeAllData()
                     self.btnLogout.setTitle("로그인", for: .normal)
                     self.isLogout = false
                 }
@@ -88,7 +88,7 @@ class MainViewController: UIViewController {
     }
     @IBAction func withdraw(_ sender: Any) {
         
-        if User.shared.snsKind == .Naver {
+        if AlphadoUser.shared.snsKind == .Naver {
             NaverSNSLogin.shared.disConnect()
             self.btnLogout.setTitle("로그인", for: .normal)
             self.isLogout = false

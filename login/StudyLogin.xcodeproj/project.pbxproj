@@ -15,6 +15,7 @@
 		DDB932DF2851DF750018F2A0 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB932DE2851DF750018F2A0 /* String+Extension.swift */; };
 		DDBE79CE2856FB9F00A713C7 /* NaverSNSLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBE79CD2856FB9F00A713C7 /* NaverSNSLogin.swift */; };
 		DDBE79D0285703C700A713C7 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBE79CF285703C700A713C7 /* UIApplication+Extension.swift */; };
+		DDBE79D228570E6D00A713C7 /* KakaoSNSLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBE79D128570E6D00A713C7 /* KakaoSNSLogin.swift */; };
 		DDE6E008284F1619000DC2D0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE6E007284F1619000DC2D0 /* SignUpViewController.swift */; };
 		DDE6E00A284F2167000DC2D0 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE6E009284F2167000DC2D0 /* HoshiTextField.swift */; };
 		DDE6E00C284F217E000DC2D0 /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE6E00B284F217E000DC2D0 /* TextFieldEffects.swift */; };
@@ -23,7 +24,7 @@
 		DDE6E012284F3851000DC2D0 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDE6E011284F3851000DC2D0 /* Intro.storyboard */; };
 		DDE6E014284F387B000DC2D0 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE6E013284F387B000DC2D0 /* IntroViewController.swift */; };
 		DDE6E016284F3A70000DC2D0 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE6E015284F3A70000DC2D0 /* Global.swift */; };
-		DDE6E018284F3AE4000DC2D0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE6E017284F3AE4000DC2D0 /* User.swift */; };
+		DDE6E018284F3AE4000DC2D0 /* AlphadoUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE6E017284F3AE4000DC2D0 /* AlphadoUser.swift */; };
 		DDF085D42831E8B0004FF351 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF085D32831E8B0004FF351 /* AppDelegate.swift */; };
 		DDF085D62831E8B0004FF351 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF085D52831E8B0004FF351 /* SceneDelegate.swift */; };
 		DDF085D82831E8B0004FF351 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF085D72831E8B0004FF351 /* MainViewController.swift */; };
@@ -47,6 +48,7 @@
 		DDB932DE2851DF750018F2A0 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		DDBE79CD2856FB9F00A713C7 /* NaverSNSLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverSNSLogin.swift; sourceTree = "<group>"; };
 		DDBE79CF285703C700A713C7 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		DDBE79D128570E6D00A713C7 /* KakaoSNSLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoSNSLogin.swift; sourceTree = "<group>"; };
 		DDE6E007284F1619000DC2D0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		DDE6E009284F2167000DC2D0 /* HoshiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
 		DDE6E00B284F217E000DC2D0 /* TextFieldEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
@@ -55,7 +57,7 @@
 		DDE6E011284F3851000DC2D0 /* Intro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 		DDE6E013284F387B000DC2D0 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		DDE6E015284F3A70000DC2D0 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
-		DDE6E017284F3AE4000DC2D0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DDE6E017284F3AE4000DC2D0 /* AlphadoUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphadoUser.swift; sourceTree = "<group>"; };
 		DDF085D02831E8B0004FF351 /* StudyLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF085D32831E8B0004FF351 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDF085D52831E8B0004FF351 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,12 +127,13 @@
 				DDE6E007284F1619000DC2D0 /* SignUpViewController.swift */,
 				DDE6E011284F3851000DC2D0 /* Intro.storyboard */,
 				DDE6E013284F387B000DC2D0 /* IntroViewController.swift */,
-				DDE6E017284F3AE4000DC2D0 /* User.swift */,
+				DDE6E017284F3AE4000DC2D0 /* AlphadoUser.swift */,
 				DD44A66028502449001C79E5 /* Util.swift */,
 				DD44A662285097E2001C79E5 /* UserInfomationViewController.swift */,
 				DDB932DA2851DE770018F2A0 /* Localizable.strings */,
 				DDB932DE2851DF750018F2A0 /* String+Extension.swift */,
 				DDBE79CD2856FB9F00A713C7 /* NaverSNSLogin.swift */,
+				DDBE79D128570E6D00A713C7 /* KakaoSNSLogin.swift */,
 				DDBE79CF285703C700A713C7 /* UIApplication+Extension.swift */,
 			);
 			path = StudyLogin;
@@ -266,6 +269,7 @@
 			files = (
 				DD44A66128502449001C79E5 /* Util.swift in Sources */,
 				DDE6E00C284F217E000DC2D0 /* TextFieldEffects.swift in Sources */,
+				DDBE79D228570E6D00A713C7 /* KakaoSNSLogin.swift in Sources */,
 				DDF085D82831E8B0004FF351 /* MainViewController.swift in Sources */,
 				DD44A663285097E2001C79E5 /* UserInfomationViewController.swift in Sources */,
 				DDF085D42831E8B0004FF351 /* AppDelegate.swift in Sources */,
@@ -276,7 +280,7 @@
 				DDF085D62831E8B0004FF351 /* SceneDelegate.swift in Sources */,
 				DD2219F72834DD780070C00A /* SignInViewController.swift in Sources */,
 				DDE6E014284F387B000DC2D0 /* IntroViewController.swift in Sources */,
-				DDE6E018284F3AE4000DC2D0 /* User.swift in Sources */,
+				DDE6E018284F3AE4000DC2D0 /* AlphadoUser.swift in Sources */,
 				DDBE79D0285703C700A713C7 /* UIApplication+Extension.swift in Sources */,
 				DDE6E016284F3A70000DC2D0 /* Global.swift in Sources */,
 			);

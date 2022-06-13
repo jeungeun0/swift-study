@@ -7,9 +7,6 @@
 
 import UIKit
 import AuthenticationServices
-import KakaoSDKCommon
-import KakaoSDKAuth
-import KakaoSDKUser
 import AlamofireImage
 import Alamofire
 
@@ -105,115 +102,7 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func signupKakao() {
-        //카카오톡 설치여부
-        if UserApi.isKakaoTalkLoginAvailable() {
-            UserApi.shared.loginWithKakaoTalk { oauthToken, error in
-                if let error = error {
-                    //예외처리
-                    debugPrint(error.localizedDescription)
-                } else {
-                    print("loginWithKakaoTalk() success.")
-                    
-                    //doSomthing
-                    let accessToken = oauthToken?.accessToken
-                    print(accessToken ?? "")
-                    UserApi.shared.me { user, error in
-                        if let error = error {
-                            print(error.localizedDescription)
-                        } else {
-                            print("me() success.")
-                            
-                            let id = user?.id
-                            let email = user?.kakaoAccount?.email
-                            let name = user?.kakaoAccount?.legalName
-                            let nickName = user?.kakaoAccount?.profile?.nickname
-                            let imageUrl = user?.kakaoAccount?.profile?.profileImageUrl
-                            
-                            //유저 데이터 저장
-                            if let id = id {
-                                User.shared.identifier = String(id)
-                            }
-                            
-                            User.shared.email = email
-                            User.shared.name = name
-                            User.shared.nickName = nickName
-                            
-                            if imageUrl != nil {
-                                let downloader = ImageDownloader()
-                                let urlRequest = URLRequest(url: imageUrl!)
-                                let filter = AspectScaledToFillSizeFilter(size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
-                                
-                                downloader.download(urlRequest, filter: filter, completion:  { response in
-                                    
-                                    print(response.request ?? "")
-                                    print(response.response ?? "")
-                                    debugPrint(response.result)
-                                    
-                                    if case .success(let image) = response.result {
-                                        print(image)
-                                        User.shared.thumbnail = image
-                                    }
-                                })
-                            }
-                            
-                            Util.shared.changeRoot(storyboardName: "Main", destinationIdentifier: "Main")
-                            
-                        }
-                    }
-                }
-            }
-        } else {
-            UserApi.shared.loginWithKakaoAccount { oauthToken, error in
-                if let error = error {
-                    print(error.localizedDescription)
-                } else {
-                    //doSomething
-                    UserApi.shared.me { user, error in
-                        if let error = error {
-                            print(error.localizedDescription)
-                        } else {
-                            print("me() success.")
-                            
-                            let id = user?.id
-                            let email = user?.kakaoAccount?.email
-                            let name = user?.kakaoAccount?.legalName
-                            let nickName = user?.kakaoAccount?.profile?.nickname
-                            let imageUrl = user?.kakaoAccount?.profile?.profileImageUrl
-                            
-                            //유저 데이터 저장
-                            if let id = id {
-                                User.shared.identifier = String(id)
-                            }
-                            
-                            User.shared.email = email
-                            User.shared.name = name
-                            User.shared.nickName = nickName
-                            
-                            if imageUrl != nil {
-                                let downloader = ImageDownloader()
-                                let urlRequest = URLRequest(url: imageUrl!)
-                                let filter = AspectScaledToFillSizeFilter(size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
-                                
-                                downloader.download(urlRequest, filter: filter, completion:  { response in
-                                    
-                                    print(response.request ?? "")
-                                    print(response.response ?? "")
-                                    debugPrint(response.result)
-                                    
-                                    if case .success(let image) = response.result {
-                                        print(image)
-                                        User.shared.thumbnail = image
-                                    }
-                                })
-                            }
-                            Util.shared.changeRoot(storyboardName: "Main", destinationIdentifier: "Main")
-                            
-                        }
-                    }
-                }
-            }
-        }
-        
+        KakaoSNSLogin.shared.login()
     }
     
     @objc func signupNaver() {
@@ -273,10 +162,10 @@ extension SignUpViewController: ASAuthorizationControllerPresentationContextProv
                 name = (givenName ?? "") + " " + (middleName ?? "") + (familyName ?? "")
             }
             
-            User.shared.identifier = userIdentifier
-            User.shared.nickName = nickname
-            User.shared.email = email
-            User.shared.name = name
+            AlphadoUser.shared.identifier = userIdentifier
+            AlphadoUser.shared.nickName = nickname
+            AlphadoUser.shared.email = email
+            AlphadoUser.shared.name = name
             
             
 //            if let code = code {

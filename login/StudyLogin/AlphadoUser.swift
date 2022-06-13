@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-class User {
+class AlphadoUser {
     
-    static let shared: User = User()
+    static let shared: AlphadoUser = AlphadoUser()
     
     enum LoginKind: Int {
         case Apple = 0

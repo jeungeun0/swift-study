@@ -16,10 +16,10 @@ class NaverSNSLogin: NSObject {
     private let instance = NaverThirdPartyLoginConnection.getSharedInstance()
     
     var success: ((_ loginData: NaverLogin) -> Void)? = { loginData in
-        User.shared.snsKind = .Naver
-        User.shared.email = loginData.response.email
-        User.shared.name = loginData.response.name
-        User.shared.identifier = loginData.response.id
+        AlphadoUser.shared.snsKind = .Naver
+        AlphadoUser.shared.email = loginData.response.email
+        AlphadoUser.shared.name = loginData.response.name
+        AlphadoUser.shared.identifier = loginData.response.id
         Util.shared.changeRoot(storyboardName: "Main", destinationIdentifier: "Main")
     }
     var failure: ((_ error: AFError) -> Void)? = { error in
@@ -73,13 +73,13 @@ class NaverSNSLogin: NSObject {
     
     func logout() {
         instance?.delegate = self
-        User.shared.removeAllData()
+        AlphadoUser.shared.removeAllData()
         instance?.resetToken()
     }
     
     func disConnect() {
         instance?.delegate = self
-        User.shared.removeAllData()
+        AlphadoUser.shared.removeAllData()
         instance?.requestDeleteToken()
     }
     
