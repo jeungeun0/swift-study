@@ -64,6 +64,7 @@ class KakaoSNSLogin {
     }
     
     func login() {
+        
         //카카오톡 설치 여부 판단
         if UserApi.isKakaoTalkLoginAvailable() {
             //카카오앱을 열어서 로그인
@@ -74,9 +75,25 @@ class KakaoSNSLogin {
                 } else {
                     print("loginWithKakaoTalk() success.")
                     
+                    if let refreshToken = oauthToken?.refreshToken {
+                        UserDefaults.standard.setValue(refreshToken, forKey: "REFRESH_TOKEN")
+                        
+                        //토큰을 키체인에 저장
+                        let query: [CFString : Any] = [kSecClass : kSecClassGenericPassword,
+                                                 kSecAttrService : "AlphadoPetPlus",
+                                                 kSecAttrAccount : AlphadoUser.shared.email ?? "",
+                                                 kSecAttrGeneric : refreshToken]
+                        
+                        let isSuccess = SecItemAdd(query as CFDictionary, nil) == errSecSuccess
+                        print("is refreshToken save success? = \(isSuccess)")
+                    }
                     //doSomthing
-                    let accessToken = oauthToken?.accessToken
-                    print(accessToken ?? "")
+                    if let accessToken = oauthToken?.accessToken {
+                        UserDefaults.standard.setValue(accessToken, forKey: "ACCESS_TOKEN")
+                    }
+                    
+                    
+                    
                     //유저 정보 얻기
                     self.userInfo()
                 }
@@ -124,6 +141,42 @@ class KakaoSNSLogin {
                 self.errorAlert(error: error)
             } else {
                 AlphadoUser.shared.removeAllData()
+            }
+        }
+    }
+    
+    func tokenCheck(success: (() -> Void)?, failuer: (() -> Void)?) {
+        //이전에 받은 토큰이 있는지 체크
+        if AuthApi.hasToken() {
+            //hasToken이 true여도 사용자가 현재 로그인 중인지 알 수 없음.
+            //앱 내부에 저장 해 둔 토큰과 비교필요?
+            
+            //토큰 유효성 체크
+            UserApi.shared.accessTokenInfo { _, error in
+                if let error = error {
+                    if let sdkError = error as? SdkError, sdkError.isInvalidTokenError() == true {
+                        //로그인 필요
+                        if let failuer = failuer {
+                            failuer()
+                        }
+                        
+                    } else {
+                        //기타 에러
+                        print(error.localizedDescription)
+                    }
+                } else {
+                    //토큰 유효성 체크 성공(필요 시 토큰 갱신됨)
+                    //완료 함수 실행
+                    if let success = success {
+                        success()
+                    }
+                }
+            }
+        } else {
+            //이전에 받은 토큰이 없음
+            //로그인이 필요
+            if let failuer = failuer {
+                failuer()
             }
         }
     }

@@ -30,6 +30,23 @@ class IntroViewController: UIViewController {
         } else {
             performSegue(withIdentifier: "toSignIn", sender: nil)
         }
+        
+        if AlphadoUser.shared.snsKind == nil {
+            performSegue(withIdentifier: "toSignIn", sender: nil)
+        } else if AlphadoUser.shared.snsKind == .Kakao {
+            KakaoSNSLogin.shared.tokenCheck { tokenInfo in
+                //자동 로그인
+                //검증한 토큰이 유효한 상태이므로 사용자 로그인 불필요.
+                //해당 엑세스 토큰으로 카카오 API 호출 가능
+                tokenInfo
+            } failuer: {
+                //로그인 화면으로 보내기
+                //액세스 토큰 및 리스페시 토큰이 유효하지 않아 사용자 로그인 필요
+                //각 에러에 맞는 처리 필요, 레퍼런스 참고
+            }
+
+
+        }
     }
     
 

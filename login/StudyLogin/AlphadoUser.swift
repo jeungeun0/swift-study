@@ -12,11 +12,24 @@ class AlphadoUser {
     
     static let shared: AlphadoUser = AlphadoUser()
     
-    enum LoginKind: Int {
+    enum LoginType: Int {
         case Apple = 0
         case Kakao
         case Naver
         case Email
+        
+        func getName() -> String {
+            switch self {
+            case .Apple:
+                return "Apple"
+            case .Kakao:
+                return "Kakao"
+            case .Naver:
+                return "Naver"
+            case .Email:
+                return "Email"
+            }
+        }
     }
     
     enum UserInfomation: String {
@@ -55,10 +68,10 @@ class AlphadoUser {
     }
     //TODO: - 키체인으로 바꾸어야 함
     
-    var snsKind: LoginKind? {
+    var snsKind: LoginType? {
         get {
             let rawValue = UserDefaults.standard.integer(forKey: UserInfomation.snsKind.getKey())
-            let loginKind = LoginKind(rawValue: rawValue)
+            let loginKind = LoginType(rawValue: rawValue)
             return loginKind
         }
         set {
